@@ -8,7 +8,7 @@ const int bSpeed   = -70; // 70% of the full speed backward
 const int lDegrees = -90; // degrees to turn left
 const int rDegrees = 90;  // degrees to turn right
 
-//const int SIDE_FRONT_PIN = 0; //left 1, right 2
+const int FRONT_IR_PIN = 0;
 const int LEFT_IR_PIN = 1;
 const int RIGHT_IR_PIN = 2;
 
@@ -20,8 +20,25 @@ DifferentialControl control(leftMotor, rightMotor);
 const int GYROSCOPE_OFFSET = 37;
 GY50 gyro(arduinoRuntime, GYROSCOPE_OFFSET);
 
+GP2Y0A21 frontIR(arduinoRuntime, FRONT_IR_PIN);
 GP2Y0A21 leftIR(arduinoRuntime, LEFT_IR_PIN);
 GP2Y0A21 rightIR(arduinoRuntime, RIGHT_IR_PIN);
+
+const unsigned long LEFT_PULSES_PER_METER  = 600;
+const unsigned long RIGHT_PULSES_PER_METER = 740;
+
+DirectionalOdometer leftOdometer(
+    arduinoRuntime,
+    smartcarlib::pins::v2::leftOdometerPins,
+    []() { leftOdometer.update(); },
+    LEFT_PULSES_PER_METER);
+DirectionalOdometer rightOdometer(
+    arduinoRuntime,
+    smartcarlib::pins::v2::rightOdometerPins,
+    []() { rightOdometer.update(); },
+    RIGHT_PULSES_PER_METER);
+
+
 
 SimpleCar car(control);
 
@@ -40,6 +57,8 @@ void loop()
 
     //gyro.update();
     //Serial.println(gyro.getHeading());
+    //Serial.println(rightOdometer.getSpeed());
+
     
 }
 
@@ -48,7 +67,7 @@ void obstacleAvoid(){
 
     int distance = front.getDistance();
 
-    if(distance > 0 && distance < 200){ // Begin turning
+    if(distance > 0 && distance < 125){ // Begin turning
       //car.setSpeed(0);
       //car.setAngle(0);
       
@@ -69,17 +88,25 @@ void obstacleAvoid(){
 
       delay(300);
     }
-    else if(distance > 0 && distance < 300){ // slow down
+    else if(distance > 0 && distance < 220){ // slow down more
         car.setSpeed(0.25 * fSpeed);
         car.setAngle(0);
     }
-    else if(distance > 0 && distance < 400){ // slow down more
+    else if(distance > 0 && distance < 400){ // slow down
         car.setSpeed(0.5 * fSpeed);
         car.setAngle(0);
     }
     else if(distance == 0){
       car.setSpeed(fSpeed);
       car.setAngle(0);
+      delay(100);
+
+      if(rightOdometer.getSpeed() == 0.0){
+          car.setSpeed(bSpeed);
+          car.setAngle(rDegrees);
+          delay(2000);
+      }
+      
     }
     
 
