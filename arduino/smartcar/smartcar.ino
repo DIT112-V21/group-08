@@ -20,8 +20,13 @@ void setup() {
 }
 
 void loop() {
-  if(sensor.getDistance() > 0 && sensor.getDistance() < stop_dist){
+  detectObstacle();
+  }
+
+
+void detectObstacle(){
+  int dist = sensor.getDistance();
+  if(dist > 0 && dist < stop_dist){
     car.setSpeed(0);
   }
- 
 }
