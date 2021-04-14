@@ -2,14 +2,25 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image , ImageTk
 from tkinter import messagebox
+import paho.mqtt.client as mqtt
 
+#MQTT Stuff
+broker_address = "localhost"
+manualClient = mqtt.Client("Manual-Control")
+manualClient.connect(broker_address)
+manualClient.subscribe("smartcar")
+
+def publish(a):
+    print(manualClient.publish("smartcar", a))
+
+#Tkinter Stuff
 mainpage = Tk()
 mainpage.title("Pathfinder")
 # Adjust size
 mainpage.geometry('800x700')
-mainpage.iconbitmap(r'C:\Users\Admin\Downloads\car.ico')
+mainpage.iconbitmap("images\car.ico")
 
-backGround_img = ImageTk.PhotoImage(Image.open(r'C:\Users\Admin\Downloads\star.png'))
+backGround_img = ImageTk.PhotoImage(Image.open("images\star.png"))
 label_img = Label(image=backGround_img)
 label_img.pack()
 
@@ -20,33 +31,33 @@ label_img.pack()
 
 
 # Adding buttons
-btnB = Button(mainpage,text="Backward",width=15,height=3,fg="blue")
+btnB = Button(mainpage,text="Backward",width=15,height=3,fg="blue", command=lambda: publish("b"))
 btnB.place(x=300, y=300)
 
 
-btnF = Button(mainpage,text="Forward",width=15,height=3,fg="blue")
+btnF = Button(mainpage,text="Forward",width=15,height=3,fg="blue", command=lambda: publish("f"))
 btnF.place(x=300, y=100)
 
 
-btnL = Button(mainpage, text="Left",width=15,height=3,fg="blue")
+btnL = Button(mainpage, text="Left",width=15,height=3,fg="blue", command=lambda: publish("l"))
 btnL.place(x=150, y=200)
 
 
-btnR = Button(mainpage,text="Right",width=15,height=3,fg="blue")
+btnR = Button(mainpage,text="Right",width=15,height=3,fg="blue", command=lambda: publish("r"))
 btnR.place(x=450, y=200)
 
 
-btnBrakes = Button(mainpage,text="Brakes", width=15,height=3,fg="black",bg="darkred")
+btnBrakes = Button(mainpage,text="Brakes", width=15,height=3,fg="black",bg="darkred", command=lambda: publish("stop"))
 btnBrakes.place(x=50, y=350)
 
 
-btnA = Button(mainpage, text="Accelerate", width=15,height=3,fg="black",bg="darkgreen")
+btnA = Button(mainpage, text="Accelerate", width=15,height=3,fg="black",bg="darkgreen", command=lambda: publish("e"))
 btnA.place(x=575, y=350)
 
 btnMap = Button(mainpage, text="Map", width=15,height=3,fg="brown",bg="white")
 btnMap.place(x=20, y=80)
 
-btnDecelerate = Button(mainpage, text="Decelerate", width=15,height=3,fg="black",bg="yellow")
+btnDecelerate = Button(mainpage, text="Decelerate", width=15,height=3,fg="black",bg="yellow", command=lambda: publish("q"))
 btnDecelerate.place(x=300, y=400)
 
 
