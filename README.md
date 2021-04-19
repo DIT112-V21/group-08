@@ -1,5 +1,5 @@
 # group-08-Pathfinder
-What are we making?
+# What are we making?
 
 We will endeavour to make a system to control the emulated car in the tool provided to us. We will write code for the emulated car to give it the capabilities we desire as well as create an interface with which to control the car.
 The following is a list of the features of the system we plan to develop develop:
