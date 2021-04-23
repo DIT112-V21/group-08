@@ -2,7 +2,11 @@ import sys
 import paho.mqtt.client as mqtt
 from PyQt5 import QtCore, QtGui, QtWidgets
 import speech_recognition as sr
-import simpleaudio as sa
+
+# In order to get voice-recognition to work,
+# paste the following commands into the termnial:
+# pip install pipwin
+# pipwin install PyAudio
 
 #MQTT Stuff
 broker_address = "localhost"
@@ -170,10 +174,12 @@ class Ui_SecondWindow(object):
 
     def voiceRecognition(self):
         r = sr.Recognizer()
-        print(sr.Microphone())
         with sr.Microphone() as source:
             print('Say Anything : ')
-            audio = r.listen(source)
+            try:
+                audio = r.listen(source)
+            except:
+                print("ERROR")
             try:
                 text = r.recognize_google(audio)
                 self.publish(text)
@@ -181,8 +187,30 @@ class Ui_SecondWindow(object):
             except:
                 print('Sorry, could not recognize your voice')
 
+
+    # Legal voice commands:
+    # forward, back, left, right, stop, accelerate, accelerator, deaccelerate
     def publish(self, message):
-        print(manualClient.publish("/", message))
+        words = message.split()
+        for w in words:
+            if w == "forward":
+                print(manualClient.publish("/", "w"))
+            elif w == "back":
+                print(manualClient.publish("/", "s"))
+            elif w == "left":
+                print(manualClient.publish("/", "a"))
+            elif w == "right":
+                print(manualClient.publish("/", "d"))
+            elif w == "stop":
+                print(manualClient.publish("/", "stop"))
+            elif w == "accelerate":
+                print(manualClient.publish("/", "e"))
+            elif w == "accelerator":
+                print(manualClient.publish("/", "e"))
+            elif w == "deaccelerate":
+                print(manualClient.publish("/", "q"))
+            else:
+                pass
 
 class Controller:
     def __init__(self):
