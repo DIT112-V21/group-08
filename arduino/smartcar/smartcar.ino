@@ -1,85 +1,71 @@
 #include <Smartcar.h>
-
-const int lDegrees = -90; // degrees to turn left
-const int rDegrees = 90;  // degrees to turn right
-int manualSpeed = 70;
-bool goingForward = true; //true is forward, false is backward
-
+const int fSpeed   = 70;  // 70% of the full speed forward
+const int bSpeed   = -70; // 70% of the full speed backward
 ArduinoRuntime arduinoRuntime;
 BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
 BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
-
-
+const int GYROSCOPE_OFFSET = 0;
+GY50 gyro(arduinoRuntime, GYROSCOPE_OFFSET);
 SimpleCar car(control);
 
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  handleInput();
+  turnTest();
+
 }
 
+void turnTest(){
+  int turnDegrees = 90;  //For testing purposes turnDegrees is now just set to 90. But you should be able to give the turnLeft and turnRight methods whatever value you want. 
+  turnRight(turnDegrees);
+  delay(5000);
+  turnLeft(turnDegrees);
+  delay(5000);
+  
+}
 
-// Handle input inspired by Lecturer Dimitris Platis
-// original: https://github.com/platisd/smartcar_shield/blob/master/examples/Car/manualControl/manualControl.ino
-// Modifications made: changed input keys and added Q to slow down car and E to increase speed (by 10)
-void handleInput()
-{ // handle serial input if there is any
-    if (Serial.available())
-    {
+// Methods for turning that Adam needed. startGyro is no longer taken as an argument since it would always be zero.
+// Not sure about the math for deciding how much the car should turn. Might need improvement
+void turnLeft(int turnDegrees){
+    gyro.update();
+    rightMotor.setSpeed(0);
+    leftMotor.setSpeed(0);
+    const double SPEED_REDUCE = 0.3;
+    int startGyro = gyro.getHeading();
+    int gyroCurrent = startGyro;
+    
+    do {
+      rightMotor.setSpeed(SPEED_REDUCE * fSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * bSpeed);
+      gyro.update();
+      gyroCurrent = gyro.getHeading();
+      
+    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 + 90) % 360 );
+      rightMotor.setSpeed(0);
+      leftMotor.setSpeed(0);
+}
 
-        char input = Serial.read(); // read everything that has been received so far and log down
-                                    // the last entry
-        switch (input)
-        {
-        case 'a': // rotate counter-clockwise going forward
-            car.setSpeed(manualSpeed);
-            car.setAngle(lDegrees);
-            break;
-        case 'd': // turn clock-wise
-            car.setSpeed(manualSpeed);
-            car.setAngle(rDegrees);
-            break;
-        case 'w': // go ahead
-            car.setSpeed(manualSpeed);
-            car.setAngle(0);
-            goingForward = true;
-            break;
-        case 's': // go back
-            car.setSpeed(-manualSpeed);
-            car.setAngle(0);
-            goingForward = false;
-            break;
-        case 'q':  // Decrease speed by 10
-            if ((manualSpeed - 10) >= 0) { // to stop the car from reversing when decrasing speed
-                manualSpeed = manualSpeed - 10;
-                Serial.println(manualSpeed);
-                if (goingForward) {
-                  car.setSpeed(manualSpeed);
-                } else {
-                  car.setSpeed(-manualSpeed);
-                }
-            }
-            break;
-        case 'e': // Increase speed by 10
-            if ((manualSpeed + 10) <= 100) { // car can't go faster than 100
-                manualSpeed = manualSpeed + 10;
-                Serial.println(manualSpeed);
-                if (goingForward) {
-                  car.setSpeed(manualSpeed);
-                } else {
-                  car.setSpeed(-manualSpeed);
-                }
-            }
-            break;
-        default: // if you receive something that you don't know, just stop
-            car.setSpeed(0);
-            car.setAngle(0);
-        }
-        
-    }
+void turnRight(int turnDegrees){
+    gyro.update();
+    rightMotor.setSpeed(0);
+    leftMotor.setSpeed(0);
+    const double SPEED_REDUCE = 0.3;
+    int startGyro = gyro.getHeading();
+    int gyroCurrent = startGyro;
+
+    do {
+      rightMotor.setSpeed(SPEED_REDUCE * bSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * fSpeed);
+      gyro.update();
+      gyroCurrent = gyro.getHeading();
+    
+    
+    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 - 90) % 360 );
+    rightMotor.setSpeed(0);
+    leftMotor.setSpeed(0);
 }
