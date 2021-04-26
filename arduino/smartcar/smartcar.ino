@@ -45,7 +45,7 @@ void turnLeft(int turnDegrees){
       gyro.update();
       gyroCurrent = gyro.getHeading();
       
-    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 + 90) % 360 );
+    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 + turnDegrees) % 360 );
       rightMotor.setSpeed(0);
       leftMotor.setSpeed(0);
 }
@@ -65,7 +65,7 @@ void turnRight(int turnDegrees){
       gyroCurrent = gyro.getHeading();
     
     
-    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 - 90) % 360 );
+    }  while((gyroCurrent + 180) % 360 != abs(startGyro + 180 - turnDegrees) % 360 );
     rightMotor.setSpeed(0);
     leftMotor.setSpeed(0);
 }
