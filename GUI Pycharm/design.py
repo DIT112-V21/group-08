@@ -1,7 +1,12 @@
 stylesheet = '''
 
+
 #main_window{
-    background-image: url(star.png)
+    background-image: url(smartcar1.png)
+}
+
+#Ui_SecondWindow{
+    background-image: url(smartcar2.png)
 }
 
 .QPushButton
@@ -72,7 +77,11 @@ stylesheet = '''
 }
 
 #buttonDeaccelerate{
-    background-color: #0080FF
+    background-color: #0080FF;
+}
+
+#labelInstructions{
+    color: white;
 }
 
 '''
