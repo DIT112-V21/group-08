@@ -19,7 +19,8 @@ SimpleCar car(control);
 
 void setup() {
     Serial.begin(9600);
-    mqtt.begin("localhost", 1883, WiFi);
+    //Uncomment line below
+    //mqtt.begin("localhost", 1883, WiFi);
     // Will connect to localhost port 1883 be default
     if (mqtt.connect("arduino", "public", "public")) {
         mqtt.subscribe("/", 2); // Subscribing to topic "/"
