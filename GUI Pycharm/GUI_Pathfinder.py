@@ -1,11 +1,8 @@
-# This is a sample Python script.
+'''
 
-# Press Skift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+Made by Group Pathfinder (group 8 - DIT112)
 
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-
+'''
 
 import sys
 import paho.mqtt.client as mqtt
@@ -20,80 +17,66 @@ manualClient.connect(broker_address)
 manualClient.subscribe("/")
 
 
-
-
 class windowMain(object):
     def setupUi(self, windowMain):
         windowMain.setObjectName("windowMain")
         windowMain.resize(700, 600)
-        #self.setWindowIcon(QtGui.QIcon('Car icon.png')) HERE
+
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(windowMain.sizePolicy().hasHeightForWidth())
         windowMain.setSizePolicy(sizePolicy)
-        windowMain.setMinimumSize(QtCore.QSize(700, 600))
-        windowMain.setMaximumSize(QtCore.QSize(700, 600))
-        #windowMain.setStyleSheet("QWidget#windowMain{ background-image: url(star.png)}")
+        windowMain.setMinimumSize(QtCore.QSize(650, 450))
+        windowMain.setMaximumSize(QtCore.QSize(650, 450))
         windowMain.setObjectName("main_window")
         windowMain.setStyleSheet(design.stylesheet)
-        self.labelWelcome = QtWidgets.QLabel(windowMain)
-        self.labelWelcome.setGeometry(QtCore.QRect(340, 60, 181, 21))
-        font = QtGui.QFont()
-        font.setPointSize(13)
-        self.labelWelcome.setFont(font)
-        self.labelWelcome.setObjectName("labelWelcome")
         self.buttonBrake = QtWidgets.QPushButton(windowMain)
-        self.buttonBrake.setGeometry(QtCore.QRect(420, 320, 111, 81))
+        self.buttonBrake.setGeometry(QtCore.QRect(280, 330, 111, 81))
         self.buttonBrake.setAutoFillBackground(False)
         self.buttonBrake.setObjectName("buttonBrake")
-        self.buttonDeaccelerate = QtWidgets.QPushButton(windowMain)
-        self.buttonDeaccelerate.setGeometry(QtCore.QRect(420, 230, 111, 81))
-        self.buttonDeaccelerate.setObjectName("buttonDeaccelerate")
-        self.buttonAccelerate = QtWidgets.QPushButton(windowMain)
-        self.buttonAccelerate.setGeometry(QtCore.QRect(420, 140, 111, 81))
-        self.buttonAccelerate.setObjectName("buttonAccelerate")
+
         self.buttonForward = QtWidgets.QPushButton(windowMain)
-        self.buttonForward.setGeometry(QtCore.QRect(160, 140, 111, 81))
+        self.buttonForward.setGeometry(QtCore.QRect(160, 40, 111, 81))
         self.buttonForward.setStyleSheet("")
         self.buttonForward.setObjectName("buttonForward")
+
         self.buttonLeft = QtWidgets.QPushButton(windowMain)
-        self.buttonLeft.setGeometry(QtCore.QRect(40, 230, 111, 81))
+        self.buttonLeft.setGeometry(QtCore.QRect(40, 130, 111, 81))
         self.buttonLeft.setStyleSheet("")
         self.buttonLeft.setObjectName("buttonLeft")
+
         self.buttonRight = QtWidgets.QPushButton(windowMain)
-        self.buttonRight.setGeometry(QtCore.QRect(280, 230, 111, 81))
+        self.buttonRight.setGeometry(QtCore.QRect(280, 130, 111, 81))
         self.buttonRight.setStyleSheet("")
         self.buttonRight.setObjectName("buttonRight")
         self.buttonBack = QtWidgets.QPushButton(windowMain)
-        self.buttonBack.setGeometry(QtCore.QRect(160, 320, 111, 81))
+        self.buttonBack.setGeometry(QtCore.QRect(160, 220, 111, 81))
         self.buttonBack.setStyleSheet("")
         self.buttonBack.setObjectName("buttonBack")
         self.buttonVoiceControl = QtWidgets.QPushButton(windowMain)
-        self.buttonVoiceControl.setGeometry(QtCore.QRect(40, 430, 111, 81))
+        self.buttonVoiceControl.setGeometry(QtCore.QRect(40, 330, 111, 81))
         self.buttonVoiceControl.setStyleSheet("")
         self.buttonVoiceControl.setObjectName("buttonVoiceControl")
         self.buttonHelp = QtWidgets.QPushButton(windowMain)
-        self.buttonHelp.setGeometry(QtCore.QRect(160, 430, 111, 81))
+        self.buttonHelp.setGeometry(QtCore.QRect(160, 330, 111, 81))
         self.buttonHelp.setStyleSheet("")
         self.buttonHelp.setObjectName("buttonHelp")
         self.buttonExit = QtWidgets.QPushButton(windowMain)
-        self.buttonExit.setGeometry(QtCore.QRect(280, 430, 111, 81))
+        self.buttonExit.setGeometry(QtCore.QRect(430, 350, 80, 60))
         self.buttonExit.setAutoFillBackground(False)
         self.buttonExit.setStyleSheet("background-color: red")
         self.buttonExit.setObjectName("buttonExit")
         self.sliderSpeed = QtWidgets.QSlider(windowMain)
-        self.sliderSpeed.setGeometry(QtCore.QRect(560, 140, 81, 261))
+        self.sliderSpeed.setGeometry(QtCore.QRect(430, 40, 81, 261))
         self.sliderSpeed.setOrientation(QtCore.Qt.Vertical)
         self.sliderSpeed.setObjectName("sliderSpeed")
-        self.labelSpeedInteger = QtWidgets.QLabel(windowMain)
-        self.labelSpeedInteger.setGeometry(QtCore.QRect(570, 440, 51, 61))
-        font = QtGui.QFont()
-        font.setPointSize(13)
-        self.labelSpeedInteger.setFont(font)
-        self.labelSpeedInteger.setObjectName("labelSpeedInteger")
+        self.sliderSpeed.setRange(0, 100)
+
+        self.sliderSpeed.valueChanged[int].connect(self.changeValue)
+
         self.labelCurrentSpeed = QtWidgets.QLabel(windowMain)
-        self.labelCurrentSpeed.setGeometry(QtCore.QRect(440, 440, 121, 61))
+        self.labelCurrentSpeed.setGeometry(QtCore.QRect(560, 340, 121, 61))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.labelCurrentSpeed.setFont(font)
@@ -106,11 +89,9 @@ class windowMain(object):
     def retranslateUi(self, windowMain):
         _translate = QtCore.QCoreApplication.translate
         windowMain.setWindowTitle(_translate("windowMain", "Path Finder"))
-        self.labelWelcome.setText(_translate("windowMain",
-                                             "<html><head/><body><p><span style=\" color:#ffffff;\">Welcome to PathFinder</span></p><p><br/></p></body></html>"))
+
         self.buttonBrake.setText(_translate("windowMain", "Brake"))
-        self.buttonDeaccelerate.setText(_translate("windowMain", "Deaccelerate"))
-        self.buttonAccelerate.setText(_translate("windowMain", "Accelerate"))
+
         self.buttonForward.setText(_translate("windowMain", "Forward"))
         self.buttonLeft.setText(_translate("windowMain", "Left"))
         self.buttonRight.setText(_translate("windowMain", "Right"))
@@ -118,10 +99,12 @@ class windowMain(object):
         self.buttonVoiceControl.setText(_translate("windowMain", "Voice Control"))
         self.buttonHelp.setText(_translate("windowMain", "How to use"))
         self.buttonExit.setText(_translate("windowMain", "Exit"))
-        self.labelSpeedInteger.setText(_translate("windowMain",
-                                                  "<html><head/><body><p><span style=\" color:#ffffff;\">0</span></p></body></html>"))
+
         self.labelCurrentSpeed.setText(_translate("windowMain",
-                                                  "<html><head/><body><p><span style=\" color:#ffffff;\">Current Speed:</span></p></body></html>"))
+                                                  "<html><head/><body><p><span style=\" color:white;\"></span></p></body></html>"))
+
+    def changeValue(self, value):
+        print(manualClient.publish("speed", value), " Slider value: ", value)
 
     def LoadSecondWindow(self):
         SecondWindow = QtWidgets.QMainWindow()
@@ -136,30 +119,30 @@ class windowMain(object):
         ThirdWindow.show()
 
     def setUpButtons(self):
-        self.buttonForward.clicked.connect(lambda: self.publish("w"))
-        self.buttonLeft.clicked.connect(lambda: self.publish("a"))
-        self.buttonRight.clicked.connect(lambda: self.publish("d"))
-        self.buttonBack.clicked.connect(lambda: self.publish("s"))
-        self.buttonAccelerate.clicked.connect(lambda: self.publish("e"))
-        self.buttonDeaccelerate.clicked.connect(lambda: self.publish("q"))
-        self.buttonBrake.clicked.connect(lambda: self.publish("stop"))
+        self.buttonForward.clicked.connect(lambda: self.publish("/", "w"))
+        self.buttonLeft.clicked.connect(lambda: self.publish("/", "a"))
+        self.buttonRight.clicked.connect(lambda: self.publish("/", "d"))
+        self.buttonBack.clicked.connect(lambda: self.publish("/", "s"))
+        self.buttonBrake.clicked.connect(lambda: self.publish("/", "stop"))
         self.buttonExit.clicked.connect(QtCore.QCoreApplication.instance().quit)
 
-    def publish(self, message):
-        print(manualClient.publish("/", message))
+    def publish(self, topic, message):
+        print(manualClient.publish(topic, message), " Action: ", message)
 
 
 class Ui_SecondWindow(object):
     def setupUi(self, Ui_SecondWindow):
         Ui_SecondWindow.setObjectName("Voice Control")
-        Ui_SecondWindow.resize(400, 300)
+        Ui_SecondWindow.resize(400, 270)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Ui_SecondWindow.sizePolicy().hasHeightForWidth())
         Ui_SecondWindow.setSizePolicy(sizePolicy)
-        Ui_SecondWindow.setMinimumSize(QtCore.QSize(400, 300))
-        Ui_SecondWindow.setMaximumSize(QtCore.QSize(400, 300))
+        Ui_SecondWindow.setMinimumSize(QtCore.QSize(400, 270))
+        Ui_SecondWindow.setMaximumSize(QtCore.QSize(400, 270))
+        Ui_SecondWindow.setObjectName("Ui_SecondWindow")
+        Ui_SecondWindow.setStyleSheet(design.stylesheet)
 
         self.centralWidget = QtWidgets.QWidget(Ui_SecondWindow)
         self.centralWidget.setObjectName("centralWidget")
@@ -171,7 +154,7 @@ class Ui_SecondWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.labelInstructions.setFont(font)
-        self.labelInstructions.setObjectName("labelInstructions")
+        self.labelInstructions.setObjectName("labelVoiceExample")
 
         Ui_SecondWindow.setCentralWidget(self.centralWidget)
 
@@ -183,7 +166,7 @@ class Ui_SecondWindow(object):
         _translate = QtCore.QCoreApplication.translate
         Ui_SecondWindow.setWindowTitle(_translate("Ui_SecondWindow", "Voice Window"))
         self.labelInstructions.setText(_translate("Ui_SecondWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">Example: "Drive forward"</span></p></body></html>'))
+                                                  '<html><head/><body><p><span>Example: "Drive forward"</span></p></body></html>'))
         self.pushButton.setText(_translate("Ui_SecondWindow", "Click, then say a command"))
 
     def setUpButtons(self):
@@ -196,33 +179,28 @@ class Ui_SecondWindow(object):
             try:
                 audio = r.listen(source)
             except:
-                print("EROR")
+                print("ERROR")
             try:
                 text = r.recognize_google(audio)
-                self.publish(text)
+                self.publish("/", text)
                 print("You said : {}".format(text))
             except:
                 print('Sorry, could not recognize your voice')
 
-    def publish(self, message):
+    def publish(self, topic, message):
         words = message.split()
         for w in words:
             if w == "forward":
-                print(manualClient.publish("/", "w"))
+                print(manualClient.publish(topic, "w"))
             elif w == "back":
-                print(manualClient.publish("/", "s"))
+                print(manualClient.publish(topic, "s"))
             elif w == "left":
-                print(manualClient.publish("/", "a"))
+                print(manualClient.publish(topic, "a"))
             elif w == "right":
-                print(manualClient.publish("/", "d"))
+                print(manualClient.publish(topic, "d"))
             elif w == "stop":
-                print(manualClient.publish("/", "stop"))
-            elif w == "accelerate":
-                print(manualClient.publish("/", "e"))
-            elif w == "accelerator":
-                print(manualClient.publish("/", "e"))
-            elif w == "deaccelerate":
-                print(manualClient.publish("/", "q"))
+                print(manualClient.publish(topic, "stop"))
+
 
 class Ui_ThirdWindow(object):
     def setupUi(self, Ui_ThirdWindow):
@@ -235,6 +213,8 @@ class Ui_ThirdWindow(object):
         Ui_ThirdWindow.setSizePolicy(sizePolicy)
         Ui_ThirdWindow.setMinimumSize(QtCore.QSize(600, 250))
         Ui_ThirdWindow.setMaximumSize(QtCore.QSize(600, 250))
+        Ui_ThirdWindow.setObjectName("Ui_ThirdWindow")
+        Ui_ThirdWindow.setStyleSheet(design.stylesheet)
 
         self.labelInstructions = QtWidgets.QLabel(Ui_ThirdWindow)
         self.labelInstructions.setGeometry(QtCore.QRect(10, 5, 191, 23))
@@ -311,56 +291,57 @@ class Ui_ThirdWindow(object):
 
     def retranslateUi(self, Ui_ThirdWindow):
         _translate = QtCore.QCoreApplication.translate
-        Ui_ThirdWindow.setWindowTitle(_translate("Ui_ThirdWindow", "Voice Window"))
+        Ui_ThirdWindow.setWindowTitle(_translate("Ui_ThirdWindow", "How to use"))
         self.labelInstructions.setText(_translate("Ui_ThirdWindow",
                                                   '<html><head/><body><p><span style=\" color:black;\">'
                                                   'Instructions : '
                                                   '</span></p></body></html>'))
         self.label1.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Forward : When clicked the car will move forward'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Forward : When clicked the car will move forward'
+                                       '</span></p></body></html>'))
         self.label2.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Backward : When clicked the car will move backward'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Backward : When clicked the car will move backward'
+                                       '</span></p></body></html>'))
         self.label3.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Left : When clicked the car will steer into the left direction'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Left : When clicked the car will steer into the left direction'
+                                       '</span></p></body></html>'))
         self.label4.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Right  : When clicked the car will steer into the right direction'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Right  : When clicked the car will steer into the right direction'
+                                       '</span></p></body></html>'))
         self.label5.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Voice Control : When clicked it will open a window for the Voice Command Control'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Voice Control : When clicked it will open a window for the Voice Command Control'
+                                       '</span></p></body></html>'))
         self.label6.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Exit : When clicked it will terminate the whole app'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Exit : When clicked it will terminate the whole app'
+                                       '</span></p></body></html>'))
         self.label7.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Accelerate :  Each click will increase the speed of the car by 10 , until it reaches 100'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Accelerate :  Each click will increase the speed of the car by 10 , until it reaches 100'
+                                       '</span></p></body></html>'))
         self.label8.setText(_translate("Ui_ThirdWindow",
-                                                  '<html><head/><body><p><span style=\" color:black;\">'
-                                                  'Decelerate :  Each click will reduce the speed of the car by 10  , until it reaches 0'
-                                                  '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Decelerate :  Each click will reduce the speed of the car by 10  , until it reaches 0'
+                                       '</span></p></body></html>'))
         self.label9.setText(_translate("Ui_ThirdWindow",
-                                                    '<html><head/><body><p><span style=\" color:black;\">'
-                                                   'Brake : When clicked it will stop the car instantly'
-                                                   '</span></p></body></html>'))
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Brake : When clicked it will stop the car instantly'
+                                       '</span></p></body></html>'))
 
 
-class Controller():
+class Controller:
     def __init__(self):
         pass
 
     def Show_FirstWindow(self):
         self.FirstWindow = QtWidgets.QMainWindow()
         self.ui = windowMain()
+        self.FirstWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
         self.ui.setupUi(self.FirstWindow)
         self.ui.buttonVoiceControl.clicked.connect(self.Show_SecondWindow)
         self.ui.buttonHelp.clicked.connect(self.Show_ThirdWindow)
@@ -369,16 +350,16 @@ class Controller():
     def Show_SecondWindow(self):
         self.SecondWindow = QtWidgets.QMainWindow()
         self.ui = Ui_SecondWindow()
+        self.SecondWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
         self.ui.setupUi(self.SecondWindow)
         self.ui.pushButton.clicked.connect(self.Print)
-
         self.SecondWindow.show()
 
     def Show_ThirdWindow(self):
         self.ThirdWindow = QtWidgets.QMainWindow()
         self.ui = Ui_ThirdWindow()
+        self.ThirdWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
         self.ui.setupUi(self.ThirdWindow)
-
         self.ThirdWindow.show()
 
     def Print(self):

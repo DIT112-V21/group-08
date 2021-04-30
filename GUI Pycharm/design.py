@@ -84,4 +84,8 @@ stylesheet = '''
     color: white;
 }
 
+#labelVoiceExample{
+    color: white;
+}
+
 '''
