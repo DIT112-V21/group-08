@@ -94,19 +94,19 @@ class WindowMain(object):
 
     def retranslateUi(self, windowmain):
         _translate = QtCore.QCoreApplication.translate
-        windowmain.setWindowTitle(_translate("windowMain", "Path Finder"))
+        windowmain.setWindowTitle(_translate("windowmain", "Path Finder"))
 
-        self.buttonBrake.setText(_translate("windowMain", "Brake"))
+        self.buttonBrake.setText(_translate("windowmain", "Brake"))
 
-        self.buttonForward.setText(_translate("windowMain", "Forward"))
-        self.buttonLeft.setText(_translate("windowMain", "Left"))
-        self.buttonRight.setText(_translate("windowMain", "Right"))
-        self.buttonBack.setText(_translate("windowMain", "Back"))
-        self.buttonVoiceControl.setText(_translate("windowMain", "Voice Control"))
-        self.buttonHelp.setText(_translate("windowMain", "How to use"))
-        self.buttonExit.setText(_translate("windowMain", "Exit"))
+        self.buttonForward.setText(_translate("windowmain", "Forward"))
+        self.buttonLeft.setText(_translate("windowmain", "Left"))
+        self.buttonRight.setText(_translate("windowmain", "Right"))
+        self.buttonBack.setText(_translate("windowmain", "Back"))
+        self.buttonVoiceControl.setText(_translate("windowmain", "Voice Control"))
+        self.buttonHelp.setText(_translate("windowmain", "How to use"))
+        self.buttonExit.setText(_translate("windowmain", "Exit"))
 
-        self.labelCurrentSpeed.setText(_translate("windowMain",
+        self.labelCurrentSpeed.setText(_translate("windowmain",
                                                   "<html><head/><body><p><span style=\" color:white;\"></span></p></body></html>"))
 
     @staticmethod
@@ -183,10 +183,10 @@ class UiSecondWindow(object):
 
     def retranslateUi(self, uisecondwindow):
         _translate = QtCore.QCoreApplication.translate
-        uisecondwindow.setWindowTitle(_translate("Ui_SecondWindow", "Voice Window"))
-        self.labelVoiceExample.setText(_translate("Ui_SecondWindow",
+        uisecondwindow.setWindowTitle(_translate("uisecondwindow", "Voice Window"))
+        self.labelVoiceExample.setText(_translate("uisecondwindow",
                                                   '<html><head/><body><p><span>Example: "Drive forward"</span></p></body></html>'))
-        self.pushButton.setText(_translate("Ui_SecondWindow", "Click, then say a command"))
+        self.pushButton.setText(_translate("uisecondwindow", "Click, then say a command"))
 
     def setUpButtons(self):
         self.pushButton.clicked.connect(lambda: self.voiceRecognition())
@@ -319,44 +319,44 @@ class UiThirdWindow(object):
 
     def retranslateUi(self, uithirdwindow):
         _translate = QtCore.QCoreApplication.translate
-        uithirdwindow.setWindowTitle(_translate("Ui_ThirdWindow", "How to use"))
-        self.labelInstructions.setText(_translate("Ui_ThirdWindow",
+        uithirdwindow.setWindowTitle(_translate("uithirdwindow", "How to use"))
+        self.labelInstructions.setText(_translate("uithirdwindow",
                                                   '<html><head/><body><p><span style=\" color:black;\">'
                                                   'Instructions : '
                                                   '</span></p></body></html>'))
-        self.label1.setText(_translate("Ui_ThirdWindow",
+        self.label1.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Forward : When clicked the car will move forward'
                                        '</span></p></body></html>'))
-        self.label2.setText(_translate("Ui_ThirdWindow",
+        self.label2.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Backward : When clicked the car will move backward'
                                        '</span></p></body></html>'))
-        self.label3.setText(_translate("Ui_ThirdWindow",
+        self.label3.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Left : When clicked the car will steer into the left direction'
                                        '</span></p></body></html>'))
-        self.label4.setText(_translate("Ui_ThirdWindow",
+        self.label4.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Right  : When clicked the car will steer into the right direction'
                                        '</span></p></body></html>'))
-        self.label5.setText(_translate("Ui_ThirdWindow",
+        self.label5.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Voice Control : When clicked it will open a window for the Voice Command Control'
                                        '</span></p></body></html>'))
-        self.label6.setText(_translate("Ui_ThirdWindow",
+        self.label6.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Exit : When clicked it will terminate the whole app'
                                        '</span></p></body></html>'))
-        self.label7.setText(_translate("Ui_ThirdWindow",
+        self.label7.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Accelerate :  Each click will increase the speed of the car by 10 , until it reaches 100'
                                        '</span></p></body></html>'))
-        self.label8.setText(_translate("Ui_ThirdWindow",
+        self.label8.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Decelerate :  Each click will reduce the speed of the car by 10  , until it reaches 0'
                                        '</span></p></body></html>'))
-        self.label9.setText(_translate("Ui_ThirdWindow",
+        self.label9.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Brake : When clicked it will stop the car instantly'
                                        '</span></p></body></html>'))
