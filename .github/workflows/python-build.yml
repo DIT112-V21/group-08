@@ -1,0 +1,26 @@
+
+name: GUI CI
+
+on: [push]
+
+jobs:
+  build-gui:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Get Python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      
+      - name: Fetch dependencies
+        run: |
+          pip3 install paho-mqtt
+          pip3 install PyQt5
+          pip3 install SpeechRecognition
+          
+      - name: Test
+        run: |
+          python -m py_compile "GUI Pycharm"/GUI_Pathfinder.py
