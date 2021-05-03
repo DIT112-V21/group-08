@@ -23,4 +23,4 @@ jobs:
           
       - name: Test
         run: |
-          python -m py_compile GUI_Pathfinder.py
+          python -m py_compile GUI Pycharm/GUI_Pathfinder.py
