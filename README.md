@@ -13,7 +13,7 @@ By making the car be controllable with voice commands we hope to make it accessi
 
 # How are we going to make it?
 
-To build the system described above we are planning to use the following coding languages: Swift, Python and C++.
+To build the system described above we are planning to use the following coding languages: **Swift**, **Python** and **C++**.
 
 The reason we have chosen to use these different tools is to leverage the different strenghts of the utilized technologies as well as the individual strengths of our development team.
 
