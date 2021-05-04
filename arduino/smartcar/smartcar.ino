@@ -100,7 +100,7 @@ void drive(long driveDist){
   do{
     car.setSpeed(fSpeed);
     currentDist = car.getDistance();
-  }while(currentDist <= goalDist);
+  }while(currentDist < goalDist);
   car.setSpeed(0); 
 
 }
