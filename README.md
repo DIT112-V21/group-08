@@ -17,7 +17,7 @@ To build the system described above we are planning to use the following coding 
 
 The reason we have chosen to use these different tools is to leverage the different strenghts of the utilized technologies as well as the individual strengths of our development team.
 
-From a business standpoint we argue that these different interfaces are necessary for different users. Some drivers may want total control over the car, which is why we are enabling manual controls in our python application. Others may want a more hands off experience with voice control, also in python. Lastly, some passengers may want a layed back fully autonomous driving experience, which is why we are implementing the pathfinding app in swift.
+From a business standpoint we argue that these different interfaces are necessary for different users. Some drivers may want total control over the car, which is why we are enabling manual controls in our python application. Others may want a more hands off experience with voice control, also in python. Lastly, some passengers may want a layed back and fully autonomous driving experience, which is why we are implementing the pathfinding app in swift.
 
 ### Swift
 
