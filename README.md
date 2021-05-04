@@ -23,7 +23,7 @@ From a business standpoint we argue that these different interfaces are necessar
 
 We use Swift and SwiftUI to build the app which is responsible for presenting the map of the surrounding area as well as using pathfinding algorithms to find a path to the desired destination. The app generates a set of instructions for the car to follow.
 
-![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/NodeMap.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/NodeMap.gif)
+![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/NodeMap.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/Waypoints.gif)
 
 ### Python
 
