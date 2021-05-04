@@ -29,6 +29,10 @@ We use Swift and SwiftUI to build the app which is responsible for presenting th
 
 Python will be used to develop our alternative user interface, responsible for manual controls as well as voice controlls.
 
+### C++
+
+C++ together with MQTT will be the bridge between our different interfaces and the car. Arduino code will be responsible for executing the various commands given to the car to perform.
+
 # Development team:
 
 - Adam Telles
