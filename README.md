@@ -21,7 +21,7 @@ From a business standpoint we argue that these different interfaces are necessar
 
 ### Swift
 
-We use Swift and SwiftUI to build the app which is responsible for presenting the map of the surrounding area as well as using pathfinding algorithms to find a path to the desired destination. Currently the app has two pathfinding algoriths, one that can quickly generate paths at the cost of them often being sub-optimal. And one that uses an a-star algorithm to generate the shortest path at the cost of it being slower. The app will then generate a set of instructions for the car to follow based on the calculated path.
+We use Swift and SwiftUI to build the app which is responsible for presenting the map of the surrounding area as well as using pathfinding algorithms to find a path to the desired destination. Currently the app has two pathfinding algoriths, one that can quickly generate paths at the cost of them often being sub-optimal. And one that uses an a-star algorithm to generate the shortest path at the cost of it being slower to calculate. The app will then generate a set of instructions for the car to follow based on the calculated path.
 
 ![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/Preview%20Content/Preview%20Assets.xcassets/DemoGIFs/NodeMap.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/Preview%20Content/Preview%20Assets.xcassets/DemoGIFs/Astar.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/readme-update/Pathfinder%20iOS%20App/Preview%20Content/Preview%20Assets.xcassets/DemoGIFs/Waypoints.gif)
 
