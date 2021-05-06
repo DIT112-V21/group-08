@@ -1,8 +1,8 @@
-'''
+"""
 
 Made by Group Pathfinder (group 8 - DIT112)
 
-'''
+"""
 
 import sys
 import paho.mqtt.client as mqtt
@@ -12,7 +12,7 @@ from PyQt5.QtGui import QIcon
 import design
 import logging
 
-# Logging
+#Logging
 logging.basicConfig(filename="activeLog.log", level=logging.INFO, format="%(levelname)s : %(asctime)s : %(message)s")
 
 
@@ -23,8 +23,7 @@ manualClient.connect(broker_address)
 manualClient.subscribe("/")
 
 
-# PyQt
-# PyQt
+# PyQt5
 class WindowMain(object):
     def setupUi(self, windowmain):
 
@@ -41,7 +40,9 @@ class WindowMain(object):
         windowmain.setMaximumSize(QtCore.QSize(650, 450))
         windowmain.setObjectName("main_window")
         windowmain.setStyleSheet(design.stylesheet)
+        windowmain.setStyleSheet(design.stylesheet)
         app.aboutToQuit.connect(lambda: logging.info("--------------- Exiting Program ---------------"))
+
 
         self.buttonBrake = QtWidgets.QPushButton(windowmain)
         self.buttonBrake.setGeometry(QtCore.QRect(400, 330, 111, 81))
@@ -79,6 +80,7 @@ class WindowMain(object):
 
         self.buttonLogging = QtWidgets.QPushButton(windowmain)
         self.buttonLogging.setGeometry(QtCore.QRect(280, 330, 111, 81))
+        self.buttonLogging.setStyleSheet("background-color: gray")
         self.buttonLogging.setObjectName("buttonLogging")
 
         self.buttonExit = QtWidgets.QPushButton(windowmain)
@@ -123,9 +125,12 @@ class WindowMain(object):
         self.buttonLogging.setText(_translate("windowMain", "Logging"))
         self.buttonExit.setText(_translate("windowMain", "Exit"))
         self.buttonExit.setStyleSheet("background-color:brown")
+        self.buttonLogging.setIcon(QIcon('history.png'))
+        self.buttonBrake.setIcon(QIcon('brakes.png'))
 
         self.labelCurrentSpeed.setText(_translate("windowMain",
-                                                  "<html><head/><body><p><span style=\" color:white;\"></span></p></body></html>"))
+                                                  "<html><head/><body><p><span style=\" "
+                                                  "color:white;\"></span></p></body></html>"))
 
     @staticmethod
     def changeValue(value):
@@ -209,7 +214,8 @@ class UiSecondWindow(object):
         _translate = QtCore.QCoreApplication.translate
         uisecondwindow.setWindowTitle(_translate("uisecondwindow", "Voice Window"))
         self.labelVoiceExample.setText(_translate("uisecondwindow",
-                                                  '<html><head/><body><p><span>Example: "Drive forward"</span></p></body></html>'))
+                                                  '<html><head/><body><p><span>Example: "Drive '
+                                                  'forward"</span></p></body></html>'))
         self.pushButton.setIcon(QIcon('record.png'))
         self.pushButton.setText(_translate("uisecondwindow", "Click, then say a command"))
 
@@ -264,8 +270,8 @@ class UiThirdWindow(object):
         size_policy.setVerticalStretch(0)
         size_policy.setHeightForWidth(uithirdwindow.sizePolicy().hasHeightForWidth())
         uithirdwindow.setSizePolicy(size_policy)
-        uithirdwindow.setMinimumSize(QtCore.QSize(600, 250))
-        uithirdwindow.setMaximumSize(QtCore.QSize(600, 250))
+        uithirdwindow.setMinimumSize(QtCore.QSize(600, 350))
+        uithirdwindow.setMaximumSize(QtCore.QSize(600, 350))
         uithirdwindow.setObjectName("Ui_ThirdWindow")
         uithirdwindow.setStyleSheet(design.stylesheet)
 
@@ -284,46 +290,60 @@ class UiThirdWindow(object):
         self.label1.setObjectName("label1")
 
         self.label2 = QtWidgets.QLabel(uithirdwindow)
-        self.label2.setGeometry(QtCore.QRect(10, 50, 600, 23))
+        self.label2.setGeometry(QtCore.QRect(10, 60, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label2.setFont(font)
         self.label2.setObjectName("label2")
 
         self.label3 = QtWidgets.QLabel(uithirdwindow)
-        self.label3.setGeometry(QtCore.QRect(10, 70, 600, 23))
+        self.label3.setGeometry(QtCore.QRect(10, 90, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label3.setFont(font)
         self.label3.setObjectName("label3")
 
         self.label4 = QtWidgets.QLabel(uithirdwindow)
-        self.label4.setGeometry(QtCore.QRect(10, 90, 600, 23))
+        self.label4.setGeometry(QtCore.QRect(10, 120, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label4.setFont(font)
         self.label4.setObjectName("label4")
 
         self.label5 = QtWidgets.QLabel(uithirdwindow)
-        self.label5.setGeometry(QtCore.QRect(10, 110, 600, 23))
+        self.label5.setGeometry(QtCore.QRect(10, 150, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label5.setFont(font)
         self.label5.setObjectName("label5")
 
         self.label6 = QtWidgets.QLabel(uithirdwindow)
-        self.label6.setGeometry(QtCore.QRect(10, 130, 600, 23))
+        self.label6.setGeometry(QtCore.QRect(10, 180, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label6.setFont(font)
         self.label6.setObjectName("label6")
 
         self.label7 = QtWidgets.QLabel(uithirdwindow)
-        self.label7.setGeometry(QtCore.QRect(10, 150, 600, 23))
+        self.label7.setGeometry(QtCore.QRect(10, 210, 600, 23))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.label7.setFont(font)
         self.label7.setObjectName("label7")
+
+        self.label8 = QtWidgets.QLabel(uithirdwindow)
+        self.label8.setGeometry(QtCore.QRect(10, 240, 600, 23))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label8.setFont(font)
+        self.label8.setObjectName("label8")
+
+        self.label9 = QtWidgets.QLabel(uithirdwindow)
+        self.label9.setGeometry(QtCore.QRect(10, 270, 600, 23))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label9.setFont(font)
+        self.label9.setObjectName("label9")
 
         self.retranslateUi(uithirdwindow)
         QtCore.QMetaObject.connectSlotsByName(uithirdwindow)
@@ -353,7 +373,8 @@ class UiThirdWindow(object):
                                        '</span></p></body></html>'))
         self.label5.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
-                                       'Voice Control : When clicked it will open a window for the Voice Command Control'
+                                       'Voice Control : When clicked it will open a window for the Voice Command '
+                                       'Control '
                                        '</span></p></body></html>'))
         self.label6.setText(_translate("uithirdwindow",
                                        '<html><head/><body><p><span style=\" color:black;\">'
@@ -363,9 +384,19 @@ class UiThirdWindow(object):
                                        '<html><head/><body><p><span style=\" color:black;\">'
                                        'Exit : When clicked it will terminate the whole app'
                                        '</span></p></body></html>'))
+        self.label8.setText(_translate("uithirdwindow",
+                                       '<html><head/><body><p><span style=\" color:black;\">'
+                                       'Slider : To control car speed from 0 to 100'
+                                       '</span></p></body></html>'))
+        self.label9.setText(_translate("uithirdwindow",
+                                       "<html><head/><body><p><span style=\" color:black;\">"
+                                       "Logging : To show all the commands during the current session"
+                                       "</span></p></body></html>"))
+
 
 class UiFourthWindow(object):
-    def setupUi(self, uifourthwindow):
+    @staticmethod
+    def setupUi(uifourthwindow):
         uifourthwindow.setObjectName("Log")
         uifourthwindow.resize(600, 600)
         size_policy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -378,7 +409,8 @@ class UiFourthWindow(object):
         uifourthwindow.setObjectName("Ui_FourthWindow")
         uifourthwindow.setStyleSheet(design.stylesheet)
 
-    def retranslateUi(self, uifourthwindow):
+    @staticmethod
+    def retranslateUi(uifourthwindow):
         _translate = QtCore.QCoreApplication.translate
         uifourthwindow.setWindowTitle(_translate("uifourthwindow", "Log"))
 
