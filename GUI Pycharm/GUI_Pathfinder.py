@@ -44,7 +44,7 @@ class WindowMain(object):
         app.aboutToQuit.connect(lambda: logging.info("--------------- Exiting Program ---------------"))
 
         self.buttonBrake = QtWidgets.QPushButton(windowmain)
-        self.buttonBrake.setGeometry(QtCore.QRect(280, 330, 111, 81))
+        self.buttonBrake.setGeometry(QtCore.QRect(400, 330, 111, 81))
         self.buttonBrake.setAutoFillBackground(False)
         self.buttonBrake.setObjectName("buttonBrake")
 
@@ -75,11 +75,14 @@ class WindowMain(object):
 
         self.buttonHelp = QtWidgets.QPushButton(windowmain)
         self.buttonHelp.setGeometry(QtCore.QRect(160, 330, 111, 81))
-        self.buttonHelp.setStyleSheet("")
         self.buttonHelp.setObjectName("buttonHelp")
 
+        self.buttonLogging = QtWidgets.QPushButton(windowmain)
+        self.buttonLogging.setGeometry(QtCore.QRect(280, 330, 111, 81))
+        self.buttonLogging.setObjectName("buttonLogging")
+
         self.buttonExit = QtWidgets.QPushButton(windowmain)
-        self.buttonExit.setGeometry(QtCore.QRect(430, 350, 80, 60))
+        self.buttonExit.setGeometry(QtCore.QRect(550, 350, 80, 60))
         self.buttonExit.setAutoFillBackground(False)
         self.buttonExit.setStyleSheet("background-color: red")
         self.buttonExit.setObjectName("buttonExit")
@@ -116,6 +119,8 @@ class WindowMain(object):
         self.buttonVoiceControl.setStyleSheet("background-color:green")
         self.buttonHelp.setText(_translate("windowMain", "How to use"))
         self.buttonHelp.setIcon(QIcon('help.png'))
+        self.buttonHelp.setStyleSheet("background-color: yellow")
+        self.buttonLogging.setText(_translate("windowMain", "Logging"))
         self.buttonExit.setText(_translate("windowMain", "Exit"))
         self.buttonExit.setStyleSheet("background-color:brown")
 
@@ -139,6 +144,13 @@ class WindowMain(object):
         ui = UiThirdWindow()
         ui.setupUi(third_window)
         third_window.show()
+
+    @staticmethod
+    def LoadFourthWindow():
+        fourth_window = QtWidgets.QMainWindow()
+        ui = UiFourthWindow()
+        ui.setupUi(fourth_window)
+        fourth_window.show()
 
     def setUpButtons(self):
         self.buttonForward.clicked.connect(lambda: self.publish("/", "w"))
@@ -352,6 +364,25 @@ class UiThirdWindow(object):
                                        'Exit : When clicked it will terminate the whole app'
                                        '</span></p></body></html>'))
 
+class UiFourthWindow(object):
+    def setupUi(self, uifourthwindow):
+        uifourthwindow.setObjectName("Log")
+        uifourthwindow.resize(600, 600)
+        size_policy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        size_policy.setHorizontalStretch(0)
+        size_policy.setVerticalStretch(0)
+        size_policy.setHeightForWidth(uifourthwindow.sizePolicy().hasHeightForWidth())
+        uifourthwindow.setSizePolicy(size_policy)
+        uifourthwindow.setMinimumSize(QtCore.QSize(600, 600))
+        uifourthwindow.setMaximumSize(QtCore.QSize(600, 600))
+        uifourthwindow.setObjectName("Ui_FourthWindow")
+        uifourthwindow.setStyleSheet(design.stylesheet)
+
+    def retranslateUi(self, uifourthwindow):
+        _translate = QtCore.QCoreApplication.translate
+        uifourthwindow.setWindowTitle(_translate("uifourthwindow", "Log"))
+
+
 
 class Controller:
     def __init__(self):
@@ -364,6 +395,7 @@ class Controller:
         self.ui.setupUi(self.FirstWindow)
         self.ui.buttonVoiceControl.clicked.connect(self.Show_SecondWindow)
         self.ui.buttonHelp.clicked.connect(self.Show_ThirdWindow)
+        self.ui.buttonLogging.clicked.connect(self.Show_FourthWindow)
         self.FirstWindow.show()
 
     def Show_SecondWindow(self):
@@ -379,6 +411,13 @@ class Controller:
         self.ThirdWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
         self.ui.setupUi(self.ThirdWindow)
         self.ThirdWindow.show()
+
+    def Show_FourthWindow(self):
+        self.FourthWindow = QtWidgets.QMainWindow()
+        self.ui = UiFourthWindow()
+        self.FourthWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
+        self.ui.setupUi(self.FourthWindow)
+        self.FourthWindow.show()
 
 
 if __name__ == "__main__":
