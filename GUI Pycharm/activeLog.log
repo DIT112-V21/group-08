@@ -1,0 +1,31 @@
+2021-05-01 20:10:45,137 : ------------- Launching Pathfinder ------------
+2021-05-01 20:10:45,170 : Opening main window
+2021-05-01 20:10:46,179 : Pressed forward button
+2021-05-01 20:10:46,421 : Pressed left button
+2021-05-01 20:10:46,628 : Pressed back button
+2021-05-01 20:10:46,818 : Pressed right button
+2021-05-01 20:10:47,353 : Opening Voice Control Window
+2021-05-01 20:10:48,772 : --------------- Exiting Program ---------------
+INFO : 2021-05-01 22:09:43,410 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-01 22:09:43,510 : Opening main window
+INFO : 2021-05-01 22:09:44,744 : Opening Voice Control Window
+WARNING : 2021-05-01 22:09:45,613 : Sound device error
+INFO : 2021-05-01 22:09:51,249 : --------------- Exiting Program ---------------
+INFO : 2021-05-01 22:13:53,966 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-01 22:13:54,002 : Opening main window
+INFO : 2021-05-01 22:13:55,948 : --------------- Exiting Program ---------------
+INFO : 2021-05-01 22:15:23,623 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-01 22:15:23,659 : Opening main window
+INFO : 2021-05-01 22:15:25,212 : Opening Voice Control Window
+WARNING : 2021-05-01 22:15:27,821 : Sound device error
+INFO : 2021-05-01 22:15:34,124 : --------------- Exiting Program ---------------
+INFO : 2021-05-01 22:21:37,624 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-01 22:21:37,661 : Opening main window
+INFO : 2021-05-01 22:21:38,565 : Opening Voice Control Window
+INFO : 2021-05-01 22:24:49,099 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-01 22:24:49,135 : Opening main window
+INFO : 2021-05-01 22:24:50,286 : Opening Voice Control Window
+INFO : 2021-05-06 14:12:08,210 : ------------- Launching Pathfinder ------------
+INFO : 2021-05-06 14:12:08,272 : Opening main window
+INFO : 2021-05-06 14:12:09,983 : Opening Voice Control Window
+INFO : 2021-05-06 14:12:11,922 : --------------- Exiting Program ---------------
