@@ -90,7 +90,7 @@ func astar(from initialState: Node, to goal: Node, grid: [Node]) -> [Node]? {
                 newcost = currentANode.cost + 1
             }
             
-            //1 assumes a grid, there should be a cost function    FIX FIX FIX FIX
+            
             if (explored[child] == nil) || (explored[child]! > newcost) {
                 explored[child] = newcost
                 pqueue.push(PathNode(node: child, parent: currentANode, cost: newcost, guessCost: Float(child.guessCost(to: goal, grid: grid).count) ))
@@ -100,5 +100,8 @@ func astar(from initialState: Node, to goal: Node, grid: [Node]) -> [Node]? {
     
     return nil
 }
+
+
+
 
 

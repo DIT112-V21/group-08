@@ -13,7 +13,6 @@ struct ContentView: View {
     @State var begin = false
     @State var showGrid = false
     @State var showWaypoint = false
-    @State var useAstar = false
     
     
     
@@ -34,31 +33,7 @@ struct ContentView: View {
                 .opacity(begin ? 0 : 1)
                 .animation(Animation.easeOut(duration: 2))
             
-            if showGrid {
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        Spacer()
-                        ZStack {
-                            Circle()
-                                .frame(width: 40, height: 40)
-                                .foregroundColor(color(30, 30, 30))
-                                .overlay(Circle()
-                                            .strokeBorder(useAstar ? Color.green : Color.red, lineWidth: 3))
-                            
-                            Text("A*")
-                                .foregroundColor(.white)
-                        }
-                        .onTapGesture {
-                            useAstar.toggle()
-                        }
-                        .padding(.trailing)
-                        .padding(.bottom)
-                    }
-                    
-                }
-            }
+            
             
             VStack {
                 Image("smceLogo")
@@ -133,7 +108,7 @@ struct ContentView: View {
             
             
             if showGrid {
-                GridView(useAstar: $useAstar)
+                GridView()
             }
             
             if showWaypoint {

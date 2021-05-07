@@ -70,4 +70,22 @@ struct SMCEMQTT {
     }
     
     
+    
+    
+    func publishCommands(commands: [MQTTCommand]) {
+        for i in 0..<commands.count {
+            if commands[i].type == "ROTATION" {
+                mqttClient.publish("/", withString: "r\(commands[i].value)")
+            }
+            else if commands[i].type == "MOVE" {
+                mqttClient.publish("/", withString: "\(commands[i].value / 0.15)")
+            }
+            
+            waitStop()
+        }
+    }
+    
+    
+    
+    
 }
