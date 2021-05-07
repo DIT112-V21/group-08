@@ -23,7 +23,7 @@ From a business standpoint we argue that these different interfaces are necessar
 
 We use Swift and SwiftUI to build the app which is responsible for presenting the map of the surrounding area as well as using pathfinding algorithms to find a path to the desired destination. Currently the app has two pathfinding algoriths, one that can quickly generate paths at the cost of them often being sub-optimal. And one that uses an a-star algorithm to generate the shortest path at the cost of it being slower to calculate. The app will then generate a set of instructions for the car to follow based on the calculated path. We may also implement a waypoint based system with predetermined routes between the different waypoints.
 
-![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview Content/DemoGIFs/NodeMap.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview Content/DemoGIFs/Astar.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview Content/DemoGIFs/Waypoints.gif)
+![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview%20Content/DemoGIFs/NodeMap.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview%20Content/DemoGIFs/Astar.gif) ![alt-text](https://github.com/DIT112-V21/group-08/blob/master/swift/pathfinder/Preview%20Content/DemoGIFs/Waypoints.gif)
 
 ### Python
 
