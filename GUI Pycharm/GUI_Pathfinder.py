@@ -5,16 +5,78 @@ Made by Group Pathfinder (group 8 - DIT112)
 """
 
 import sys
+import os
 import paho.mqtt.client as mqtt
 from PyQt5 import QtCore, QtGui, QtWidgets
 import speech_recognition as sr
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import pyqtSignal, QThread
 import design
 import logging
+import datetime
+import time
+import random
+import shutil
 
 #Logging
 logging.basicConfig(filename="activeLog.log", level=logging.INFO, format="%(levelname)s : %(asctime)s : %(message)s")
 
+with open('logBackup.txt','wb') as wfd:
+    for f in ['logBackup.txt','activeLog.log']:
+        with open(f,'rb') as fd:
+            shutil.copyfileobj(fd, wfd)
+
+with open("activeLog.log", "w"):
+    pass
+
+class Thread(QThread):
+    log = pyqtSignal(str)
+
+    def __init__(self, parent=None):
+        super(Thread, self).__init__(parent)
+        self._items = []
+
+    def setItems(self, items):
+        if not self.isRunning():
+            self._items[:] = items
+
+    def run(self):
+        for item in self._items:
+            time.sleep(1)
+            self.log.emit('processing: %s' % item)
+
+class Widget(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui()
+        self._worker = Thread()
+        self._worker.log.connect(self.toLog)
+        self._worker.started.connect(lambda: self.toLog('start'))
+        self._worker.finished.connect(lambda: self.toLog('finished'))
+
+    def process(self):
+        items = ['Image%02d.png' % i for i in range(10)]
+        self._worker.setItems(items)
+        self._worker.start()
+
+    def ui(self):
+        self.LogOutputTxt = QtWidgets.QTextEdit()
+        self.LogOutputTxt.setReadOnly(True)
+        startBtn = QtWidgets.QPushButton('Start')
+        startBtn.clicked.connect(self.start)
+        layout = QtWidgets.QVBoxLayout()
+        layout.addWidget(self.LogOutputTxt)
+        layout.addWidget(startBtn)
+        self.setLayout(layout)
+        self.resize(400, 300)
+        self.show()
+
+    def start(self):
+        if not self._worker.isRunning():
+            self.process()
+
+    def toLog(self, txt):
+        self.LogOutputTxt.append(txt)
 
 # MQTT Stuff
 broker_address = "localhost"
@@ -150,13 +212,6 @@ class WindowMain(object):
         ui.setupUi(third_window)
         third_window.show()
 
-    @staticmethod
-    def LoadFourthWindow():
-        fourth_window = QtWidgets.QMainWindow()
-        ui = UiFourthWindow()
-        ui.setupUi(fourth_window)
-        fourth_window.show()
-
     def setUpButtons(self):
         self.buttonForward.clicked.connect(lambda: self.publish("/", "w"))
         self.buttonForward.clicked.connect(lambda: logging.info("Pressed forward button"))
@@ -169,6 +224,7 @@ class WindowMain(object):
         self.buttonBrake.clicked.connect(lambda: self.publish("/", "stop"))
         self.buttonBrake.clicked.connect(lambda: logging.info("Pressed brake button"))
         self.buttonExit.clicked.connect(lambda: self.exitProgram())
+        self.buttonLogging.clicked.connect(lambda: os.startfile("activeLog.log"))
 
     @staticmethod
     def publish(topic, message):
@@ -394,31 +450,9 @@ class UiThirdWindow(object):
                                        "</span></p></body></html>"))
 
 
-class UiFourthWindow(object):
-    @staticmethod
-    def setupUi(uifourthwindow):
-        uifourthwindow.setObjectName("Log")
-        uifourthwindow.resize(600, 600)
-        size_policy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        size_policy.setHorizontalStretch(0)
-        size_policy.setVerticalStretch(0)
-        size_policy.setHeightForWidth(uifourthwindow.sizePolicy().hasHeightForWidth())
-        uifourthwindow.setSizePolicy(size_policy)
-        uifourthwindow.setMinimumSize(QtCore.QSize(600, 600))
-        uifourthwindow.setMaximumSize(QtCore.QSize(600, 600))
-        uifourthwindow.setObjectName("Ui_FourthWindow")
-        uifourthwindow.setStyleSheet(design.stylesheet)
-
-    @staticmethod
-    def retranslateUi(uifourthwindow):
-        _translate = QtCore.QCoreApplication.translate
-        uifourthwindow.setWindowTitle(_translate("uifourthwindow", "Log"))
-
-
-
 class Controller:
     def __init__(self):
-        pass
+        QtCore.QThread.currentThread().setObjectName('MainThread')
 
     def Show_FirstWindow(self):
         self.FirstWindow = QtWidgets.QMainWindow()
@@ -427,7 +461,6 @@ class Controller:
         self.ui.setupUi(self.FirstWindow)
         self.ui.buttonVoiceControl.clicked.connect(self.Show_SecondWindow)
         self.ui.buttonHelp.clicked.connect(self.Show_ThirdWindow)
-        self.ui.buttonLogging.clicked.connect(self.Show_FourthWindow)
         self.FirstWindow.show()
 
     def Show_SecondWindow(self):
@@ -444,15 +477,10 @@ class Controller:
         self.ui.setupUi(self.ThirdWindow)
         self.ThirdWindow.show()
 
-    def Show_FourthWindow(self):
-        self.FourthWindow = QtWidgets.QMainWindow()
-        self.ui = UiFourthWindow()
-        self.FourthWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
-        self.ui.setupUi(self.FourthWindow)
-        self.FourthWindow.show()
 
 
 if __name__ == "__main__":
+    logging.info("------------- Launching Pathfinder -------------")
     app = QtWidgets.QApplication(sys.argv)
     Controller = Controller()
     Controller.Show_FirstWindow()
