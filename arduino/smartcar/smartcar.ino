@@ -18,21 +18,21 @@ BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
 BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
 DifferentialControl control(leftMotor, rightMotor);
 
-DirectionalOdometer leftOdometer(
+DirectionalOdometer leftOdometer{
     arduinoRuntime,
     smartcarlib::pins::v2::leftOdometerPins,
     []() { leftOdometer.update(); },
-    LEFT_PULSES_PER_METER);
-DirectionalOdometer rightOdometer(
+    LEFT_PULSES_PER_METER};
+DirectionalOdometer rightOdometer{
     arduinoRuntime,
     smartcarlib::pins::v2::rightOdometerPins,
     []() { rightOdometer.update(); },
-    RIGHT_PULSES_PER_METER);
+    RIGHT_PULSES_PER_METER};
 
 const int GYROSCOPE_OFFSET = 37;
 GY50 gyro(arduinoRuntime, GYROSCOPE_OFFSET);
 
-SimpleCar car(control);
+SmartCar car(arduinoRuntime, control, gyro, leftOdometer, rightOdometer);
 
 
 
@@ -114,9 +114,9 @@ void loop() {
 
 void goForward(double distance) {
   double currentDistance;
-  double startDistance = ((rightOdometer.getDistance() + leftOdometer.getDistance()) / 2);
+  double startDistance = car.getDistance();
   do {
-    currentDistance = ((rightOdometer.getDistance() + leftOdometer.getDistance()) / 2);
+    currentDistance = car.getDistance();
     car.setSpeed(manualSpeed);
     car.setAngle(0);
   } while(currentDistance < startDistance + distance);
@@ -130,7 +130,7 @@ void waitStop(){
   leftMotor.setSpeed(0);
 
 
-  while((leftOdometer.getSpeed() > 0.010) || (rightOdometer.getSpeed() > 0.010)){
+  while(car.getDistance() > 0.010){
     delay(10); 
   }
   
