@@ -13,9 +13,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSignal, QThread
 import design
 import logging
-import datetime
 import time
-import random
 import shutil
 
 #Logging
@@ -84,6 +82,8 @@ manualClient = mqtt.Client("Manual-Control")
 manualClient.connect(broker_address)
 manualClient.subscribe("/")
 
+def on_connect(client, userdata, flags, rc):
+    print("Connected")
 
 # PyQt5
 class WindowMain(object):
@@ -92,11 +92,14 @@ class WindowMain(object):
         logging.info("Opening main window")
         windowmain.setObjectName("windowMain")
         windowmain.resize(650, 450)
+        self.width = 650
+        self.height = 450
 
         size_policy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         size_policy.setHorizontalStretch(0)
         size_policy.setVerticalStretch(0)
         size_policy.setHeightForWidth(windowmain.sizePolicy().hasHeightForWidth())
+
         windowmain.setSizePolicy(size_policy)
         windowmain.setMinimumSize(QtCore.QSize(650, 450))
         windowmain.setMaximumSize(QtCore.QSize(650, 450))
@@ -107,7 +110,7 @@ class WindowMain(object):
 
 
         self.buttonBrake = QtWidgets.QPushButton(windowmain)
-        self.buttonBrake.setGeometry(QtCore.QRect(400, 330, 111, 81))
+        self.buttonBrake.setGeometry(QtCore.QRect(340, 330, 90, 65))
         self.buttonBrake.setAutoFillBackground(False)
         self.buttonBrake.setObjectName("buttonBrake")
 
@@ -132,23 +135,23 @@ class WindowMain(object):
         self.buttonBack.setObjectName("buttonBack")
 
         self.buttonVoiceControl = QtWidgets.QPushButton(windowmain)
-        self.buttonVoiceControl.setGeometry(QtCore.QRect(40, 330, 111, 81))
+        self.buttonVoiceControl.setGeometry(QtCore.QRect(40, 330, 90, 65))
         self.buttonVoiceControl.setStyleSheet("")
         self.buttonVoiceControl.setObjectName("buttonVoiceControl")
 
         self.buttonHelp = QtWidgets.QPushButton(windowmain)
-        self.buttonHelp.setGeometry(QtCore.QRect(160, 330, 111, 81))
+        self.buttonHelp.setGeometry(QtCore.QRect(140, 330, 90, 65))
         self.buttonHelp.setObjectName("buttonHelp")
 
         self.buttonLogging = QtWidgets.QPushButton(windowmain)
-        self.buttonLogging.setGeometry(QtCore.QRect(280, 330, 111, 81))
+        self.buttonLogging.setGeometry(QtCore.QRect(240, 330, 90, 65))
         self.buttonLogging.setStyleSheet("background-color: gray")
         self.buttonLogging.setObjectName("buttonLogging")
 
         self.buttonExit = QtWidgets.QPushButton(windowmain)
-        self.buttonExit.setGeometry(QtCore.QRect(550, 350, 80, 60))
+        self.buttonExit.setGeometry(QtCore.QRect(440, 330, 90, 65))
         self.buttonExit.setAutoFillBackground(False)
-        self.buttonExit.setStyleSheet("background-color: red")
+        self.buttonExit.setStyleSheet("background-color: blue")
         self.buttonExit.setObjectName("buttonExit")
 
         self.sliderSpeed = QtWidgets.QSlider(windowmain)
@@ -233,6 +236,7 @@ class WindowMain(object):
     @staticmethod
     def exitProgram():
         QtCore.QCoreApplication.instance().quit()
+
 
 class UiSecondWindow(object):
     def setupUi(self, uisecondwindow):
@@ -476,7 +480,6 @@ class Controller:
         self.ThirdWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
         self.ui.setupUi(self.ThirdWindow)
         self.ThirdWindow.show()
-
 
 
 if __name__ == "__main__":
