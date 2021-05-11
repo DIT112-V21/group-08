@@ -51,7 +51,7 @@ SmartCar car(arduinoRuntime, control, gyro, leftOdometer, rightOdometer);
 void setup() {
     Serial.begin(9600);
     // IMPORTANT: Uncomment line bellow (line 54) before compiling, causes error in CI for some reason but works perfectly fine in SMCE
-    //mqtt.begin("localhost", 1883, WiFi);
+    mqtt.begin("localhost", 1883, WiFi);
     // Will connect to localhost port 1883 be default
     if (mqtt.connect("arduino", "public", "public")) {
         mqtt.subscribe("/", 2);    // Subscribing to topic "/"
@@ -60,35 +60,43 @@ void setup() {
             Serial.println("Topic: " + topic + " Message: " + message);
             if(message == "r0.0") {
               gyro.update();
-              rotateTo0(gyro.getHeading());
+              int roTo = 0;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r315.0") {
               gyro.update();
-              rotateTo315(gyro.getHeading());
+              int roTo = 315;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r270.0") {
               gyro.update();
-              rotateTo270(gyro.getHeading());
+              int roTo = 270;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r225.0") {
               gyro.update();
-              rotateTo225(gyro.getHeading());
+              int roTo = 225;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r180.0") {
               gyro.update();
-              rotateTo180(gyro.getHeading());
+              int roTo = 180;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r135.0") {
               gyro.update();
-              rotateTo135(gyro.getHeading());
+              int roTo = 135;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r90.0") {
               gyro.update();
-              rotateTo90(gyro.getHeading());
+              int roTo = 90;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r45.0") {
               gyro.update();
-              rotateTo45(gyro.getHeading());
+              int roTo = 45;
+              rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "w") {
               waitStop();
@@ -135,156 +143,21 @@ void waitStop(){
   }
   
 }
-
-
-void rotateTo0(int startGyro){
+//Generalized turning methods into one and made it so it can turn left or right depending on what is quickest 
+void rotateTo(int startGyro, int roTo){ 
     gyro.update();
     rightMotor.setSpeed(0);
     leftMotor.setSpeed(0);
-    
-
-
     int gyroCurrent = startGyro;
 
     do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 180);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo45(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 135);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo90(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 90);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo135(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 45);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo180(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 0 || gyroCurrent != 360);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo225(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 315);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo270(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 270);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-}
-
-void rotateTo315(int startGyro){
-    gyro.update();
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
-    
-
-
-    int gyroCurrent = startGyro;
-
-    do {
-      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-      gyro.update();
-      gyroCurrent = gyro.getHeading();
-    } while(gyroCurrent != 225);
+        rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
+        leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
+        gyro.update();
+        gyroCurrent = gyro.getHeading();
+        Serial.println(gyroCurrent);
+      
+    } while(gyroCurrent != roTo);
     rightMotor.setSpeed(0);
     leftMotor.setSpeed(0);
 }
