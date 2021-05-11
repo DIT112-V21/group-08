@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smartcar-sykc",
+  "private_key_id": "ba91fc348ab3040f384be9e0a8be8ca5abb0d279",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCjJrQJ2hJtOBOI\nqVMO3zzjhglTKg5T4m0I+F0R6OpleWDjzZVKIOzQQrInZ8os38xCJrAxqLgt3oFB\nbaBIavYFmiLjdfFZ+48tlFR7RjBV6NqeFxo6zn4jBRqFj4YdbIP3O2ihGZenJDqm\nb8O56xcPEre2TDkAeNgesChZqwayLNh9KOG6U0Baj9ScrhdrNzeHTEjy39tH3fNl\nuIH4UB5XA4HHTGSbyY63QsF4PpT5SreOlxPBhn/A3LxJPNYCkFnI0C+1M42da4Nw\nKHN0dkKJBkx7ig1JXW21XOWMTSlwKs1ch8K8I9DHD8SAoiLfI9xWFpOm0IVFFwWq\nckWyduq7AgMBAAECggEAMMko+u0vp2MmTC49vOu6HFr/PNQNlr3VVuJVij54oMFL\n3LKj2pe/2IKpHSlnBkYhoQJKm37VHDo1smfijuUVDhXKKvQgqISVis6Y+IfDelz3\nymAkIsOOalBjXt7M/s1tJKeqIMozU/J8azpub5DBw2sYbjWase5wybRpTG7cwLg3\nVerAxtnEHQs879adVYRvEUiBqxyNpPqqipggLAuH8HWLl1KHgk7ryvtKE3UtymP6\nbXeOYhEhANcsycGwJxYVI/qMrtZJ0q8+rpyxneiPot4Ormur4kpfHjSGRvzGFOIz\nycJDYGk/zA4d0lM5gmUXGN1GfXpH8Z7cR5L776FGAQKBgQDjS/hhE060XTzpCDJp\nm5yNOIImhUQVgCArvfsGuYwGu2E6tqjXRXEaSg46y2v+0W2BGUa164lcajvIXlff\nK5ePOpVKLuKbmCYFJWbcKWhDtPbBXAB36Wo8CzRwBWsoxKQ0WJx7u4Ka7v4uZcia\ncEJlPfcBNQ+XekNsWNUsXcJRuwKBgQC3wQpf/+E5brVGBAXVVqr5PU2x4WKLuGaq\n4vkhk7T6cBnU4Y60lNJBRbNvPjMsO04iNFZxYiaI07Tuazil/pA68A0xWgTop5TE\n7T6nwg7tyc9h/nGVFoFUYRLwCkj9/x0XINBxl8NXgQQ5amDHVmfNDQPE1Ro5O9N0\n3eIURHO7AQKBgQDcULL8RV6wbP+xUQSsYO0p5XAiLmKEBKEqRQegyRD1JYNlCdA2\neVTcCpQoYSzY3d6ql/l2NEv8i+xOl0PNSc+qQTqboT59WsjfjBVbqbcqian0Wl0J\n3fHfKW02d8oaxh/zrUBgnqxFyQoPpxD+wXlZ8OoO/YOTbCsWRjS6wFauKQKBgEfe\nGFCzo0LzKbLYn+9wli4k695GaGR9Gqp7WzTmsEHC1leMYGQAULt2p1c63IjQKR73\nmVd/K9MX+gvFo8JIbeCfQomqy4CzClx67aZvH6eg5ptNCN9mje6SiPWZEDNHM/l3\nvA6xbJUswJo0IOXVxYNNM8woDLmVzH5IycNjgmABAoGBAMFLvEy9spoA0/oOnCy2\nLpNSuyOHmS/qk1DOiyS5ryPbcHIXYAfWVd3gmMMfHVstWST9LTMbvaM+8aCfuuYF\nMQbmcQ7TlwT+ercZo11/kAsRqGWHjgwSF8J2zNvuUCi9jDePKalZ/cj9sYc7OZXx\nNfh1tk//q95PPtClkcOxRi74\n-----END PRIVATE KEY-----\n",
+  "client_email": "smartcardialogflow@smartcar-sykc.iam.gserviceaccount.com",
+  "client_id": "107337355169040003474",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smartcardialogflow%40smartcar-sykc.iam.gserviceaccount.com"
+}

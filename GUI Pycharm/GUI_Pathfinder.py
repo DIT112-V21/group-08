@@ -15,6 +15,7 @@ import design
 import logging
 import time
 import shutil
+import Dialogflow as df
 
 #Logging
 logging.basicConfig(filename="activeLog.log", level=logging.INFO, format="%(levelname)s : %(asctime)s : %(message)s")
@@ -302,23 +303,7 @@ class UiSecondWindow(object):
 
     @staticmethod
     def publish(topic, message):
-        words = message.split()
-        for w in words:
-            if w == "forward":
-                print(manualClient.publish(topic, "w"))
-                logging.info("Telling car to drive forward.")
-            elif w == "back":
-                print(manualClient.publish(topic, "s"))
-                logging.info("Telling car to drive back.")
-            elif w == "left":
-                print(manualClient.publish(topic, "a"))
-                logging.info("Telling car to turn left.")
-            elif w == "right":
-                print(manualClient.publish(topic, "d"))
-                logging.info("Telling car to turn right.")
-            elif w == "stop":
-                print(manualClient.publish(topic, "stop"))
-                logging.info("Telling car to stop.")
+        print(manualClient.publish(topic, df.doDialogFlow(message)))
 
 
 class UiThirdWindow(object):

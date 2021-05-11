@@ -1,4 +1,7 @@
-INFO : 2021-05-11 14:40:57,551 : ------------- Launching Pathfinder -------------
-INFO : 2021-05-11 14:40:57,629 : Opening main window
-INFO : 2021-05-11 14:41:00,426 : Pressed forward button
-INFO : 2021-05-11 14:41:01,393 : --------------- Exiting Program ---------------
+INFO : 2021-05-11 18:29:01,436 : ------------- Launching Pathfinder -------------
+INFO : 2021-05-11 18:29:01,470 : Opening main window
+INFO : 2021-05-11 18:29:03,611 : Recording voice
+INFO : 2021-05-11 18:29:05,760 : You said: 'stop'
+INFO : 2021-05-11 18:29:08,443 : Recording voice
+INFO : 2021-05-11 18:29:14,620 : You said: 'turn right'
+INFO : 2021-05-11 18:29:18,996 : --------------- Exiting Program ---------------
