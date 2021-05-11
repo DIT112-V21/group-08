@@ -1,7 +1,5 @@
-INFO : 2021-05-11 18:29:01,436 : ------------- Launching Pathfinder -------------
-INFO : 2021-05-11 18:29:01,470 : Opening main window
-INFO : 2021-05-11 18:29:03,611 : Recording voice
-INFO : 2021-05-11 18:29:05,760 : You said: 'stop'
-INFO : 2021-05-11 18:29:08,443 : Recording voice
-INFO : 2021-05-11 18:29:14,620 : You said: 'turn right'
-INFO : 2021-05-11 18:29:18,996 : --------------- Exiting Program ---------------
+INFO : 2021-05-11 18:38:11,701 : ------------- Launching Pathfinder -------------
+INFO : 2021-05-11 18:38:11,732 : Opening main window
+INFO : 2021-05-11 18:38:13,648 : Recording voice
+INFO : 2021-05-11 18:38:16,169 : You said: 'private forward'
+INFO : 2021-05-11 18:38:16,816 : Action sent to Smartcar: 'w'

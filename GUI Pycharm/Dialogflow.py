@@ -23,4 +23,5 @@ def doDialogFlow(text_to_be_analyzed):
     print("Detected intent:", response.query_result.intent.display_name)
     print("Detected intent confidence:", response.query_result.intent_detection_confidence)
     print("Fulfillment text:", response.query_result.fulfillment_text)
+    return response.query_result.fulfillment_text
 

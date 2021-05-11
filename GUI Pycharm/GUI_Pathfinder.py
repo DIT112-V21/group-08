@@ -303,7 +303,9 @@ class UiSecondWindow(object):
 
     @staticmethod
     def publish(topic, message):
-        print(manualClient.publish(topic, df.doDialogFlow(message)))
+        diaFlo = df.doDialogFlow(message)
+        manualClient.publish(topic, diaFlo)
+        logging.info("Action sent to Smartcar: '{}'".format(diaFlo))
 
 
 class UiThirdWindow(object):
