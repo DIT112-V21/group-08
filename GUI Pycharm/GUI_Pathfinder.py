@@ -18,6 +18,7 @@ import logging
 import time
 import shutil
 import Dialogflow as df
+import Exceptions
 from pynput.keyboard import KeyCode, Listener, Key
 
 #Logging
@@ -357,9 +358,9 @@ class UiSecondWindow(object):
                     logging.info("You said: '{}'".format(text))
                     self.labelVoiceExample.setText("Last command: '{}'".format(text))
                     self.publish("/", text)
-                except NotImplementedError:
+                except Exceptions.VoiceRecognitionException:
                     logging.warning('Voice recognition error.')
-        except NotImplementedError:
+        except Exceptions.SoundDeviceException:
             logging.warning("Sound device error")
         self.pushButton.setText("Click, then say a command")
 
@@ -508,19 +509,24 @@ class KeyMonitor(QtCore.QObject):
 
     def __init__(self, parent=None):
         super().__init__(parent)
+
         self.listener = Listener(on_release=self.on_release)
 
+
     def on_release(self, key):
-        self.keyPressed.emit(key)
-        keyObjToChar = key.char
-        if keyObjToChar == 'w':
-            self.publish("/", "w")
-        elif keyObjToChar == 's':
-            self.publish("/", "s")
-        elif keyObjToChar == 'a':
-            self.publish("/", "a")
-        elif keyObjToChar == 'd':
-            self.publish("/", "d")
+        try:
+            self.keyPressed.emit(key)
+            keyObjToChar = key.char
+            if keyObjToChar == 'w':
+                self.publish("/", "w")
+            elif keyObjToChar == 's':
+                self.publish("/", "s")
+            elif keyObjToChar == 'a':
+                self.publish("/", "a")
+            elif keyObjToChar == 'd':
+                self.publish("/", "d")
+        except:
+            pass
 
     def publish(self, topic, message):
         print(manualClient.publish(topic, message), " Action: ", message)
