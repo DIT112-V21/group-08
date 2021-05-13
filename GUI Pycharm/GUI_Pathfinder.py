@@ -11,6 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import speech_recognition as sr
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSignal, QThread
+from PyQt5.QtWidgets import QProgressBar
+
 import design
 import logging
 import time
@@ -44,6 +46,22 @@ class Thread(QThread):
         for item in self._items:
             time.sleep(1)
             self.log.emit('processing: %s' % item)
+
+class ThreadSpeedometer(QThread):
+    x = 0
+    _signal = pyqtSignal(int)
+    def __init__(self):
+        super(ThreadSpeedometer, self).__init__()
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        i = 0
+        while x < 100:
+            i +1
+            time.sleep(0.1)
+            self._signal.emit(i)
 
 class Widget(QtWidgets.QWidget):
     def __init__(self):
@@ -83,12 +101,30 @@ broker_address = "localhost"
 manualClient = mqtt.Client("Manual-Control")
 manualClient.connect(broker_address)
 manualClient.subscribe("/")
+manualClient.subscribe("speed")
 
 def on_connect(client, userdata, flags, rc):
     print("Connected")
 
 # PyQt5
 class WindowMain(object):
+
+    global x
+    x = 0
+    _signal = pyqtSignal(int)
+    def on_message(client, userdata, message):
+        if message.topic == "speed":
+            print("received message: ", int(message.payload.decode("utf-8")))
+            global x
+
+            x = int(message.payload.decode("utf-8"))
+
+
+    manualClient.loop_start()
+    manualClient.on_message = on_message
+
+
+
     def setupUi(self, windowmain):
 
         logging.info("Opening main window")
@@ -156,6 +192,7 @@ class WindowMain(object):
         self.buttonExit.setStyleSheet("background-color: blue")
         self.buttonExit.setObjectName("buttonExit")
 
+
         self.sliderSpeed = QtWidgets.QSlider(windowmain)
         self.sliderSpeed.setGeometry(QtCore.QRect(430, 40, 81, 261))
         self.sliderSpeed.setOrientation(QtCore.Qt.Vertical)
@@ -164,6 +201,18 @@ class WindowMain(object):
 
         self.sliderSpeed.valueChanged[int].connect(self.changeValue)
 
+        self.speedoMeter = QtWidgets.QLabel(windowmain)
+        self.speedoMeter.setText("Current Speed: " + str(x))
+        self.speedoMeter.setGeometry(530, 300, 100, 50)
+        self.speedoMeter.setObjectName("speedoMeter")
+
+        self.speedoBar = QProgressBar(windowmain)
+        self.speedoBar.setGeometry(530, 50, 100, 250)
+        self.speedoBar.setOrientation(QtCore.Qt.Vertical)
+        self.speedoBar.setValue(int(x))
+        self.speedoBar.setObjectName("speedoBar")
+
+
         self.labelCurrentSpeed = QtWidgets.QLabel(windowmain)
         self.labelCurrentSpeed.setGeometry(QtCore.QRect(560, 340, 121, 61))
         font = QtGui.QFont()
@@ -171,9 +220,21 @@ class WindowMain(object):
         self.labelCurrentSpeed.setFont(font)
         self.labelCurrentSpeed.setObjectName("labelCurrentSpeed")
 
+        self.secondThread()
+
         self.setUpButtons()
         self.retranslateUi(windowmain)
         QtCore.QMetaObject.connectSlotsByName(windowmain)
+
+    def secondThread(self):
+        self.thread = ThreadSpeedometer()
+        self.thread._signal.connect(self.signal_accept)
+        self.thread.start()
+
+
+    def signal_accept(self, msg):
+        self.speedoBar.setValue(int(x))
+        self.speedoMeter.setText("Current Speed:" + str(x))
 
     def retranslateUi(self, windowMain):
         _translate = QtCore.QCoreApplication.translate

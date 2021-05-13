@@ -1,0 +1,3 @@
+INFO : 2021-05-13 14:13:44,935 : ------------- Launching Pathfinder -------------
+INFO : 2021-05-13 14:13:44,965 : Opening main window
+INFO : 2021-05-13 14:13:52,549 : --------------- Exiting Program ---------------
