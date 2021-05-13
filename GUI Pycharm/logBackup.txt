@@ -1,5 +1,0 @@
-INFO : 2021-05-11 18:37:31,205 : ------------- Launching Pathfinder -------------
-INFO : 2021-05-11 18:37:31,236 : Opening main window
-INFO : 2021-05-11 18:37:33,833 : Recording voice
-INFO : 2021-05-11 18:37:36,333 : You said: 'drive forward'
-INFO : 2021-05-11 18:37:37,105 : Action sent to Smartcar: w

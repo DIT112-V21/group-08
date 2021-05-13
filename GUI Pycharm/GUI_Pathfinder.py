@@ -16,6 +16,7 @@ import logging
 import time
 import shutil
 import Dialogflow as df
+from pynput.keyboard import KeyCode, Listener, Key
 
 #Logging
 logging.basicConfig(filename="activeLog.log", level=logging.INFO, format="%(levelname)s : %(asctime)s : %(message)s")
@@ -441,6 +442,34 @@ class UiThirdWindow(object):
                                        "</span></p></body></html>"))
 
 
+class KeyMonitor(QtCore.QObject):
+    keyPressed = QtCore.pyqtSignal(KeyCode)
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.listener = Listener(on_release=self.on_release)
+
+    def on_release(self, key):
+        self.keyPressed.emit(key)
+        keyObjToChar = key.char
+        if keyObjToChar == 'w':
+            self.publish("/", "w")
+        elif keyObjToChar == 's':
+            self.publish("/", "s")
+        elif keyObjToChar == 'a':
+            self.publish("/", "a")
+        elif keyObjToChar == 'd':
+            self.publish("/", "d")
+
+    def publish(self, topic, message):
+        print(manualClient.publish(topic, message), " Action: ", message)
+
+    def stop_monitoring(self):
+        self.listener.stop()
+
+    def start_monitoring(self):
+        self.listener.start()
+
 class Controller:
     def __init__(self):
         QtCore.QThread.currentThread().setObjectName('MainThread')
@@ -472,6 +501,9 @@ class Controller:
 if __name__ == "__main__":
     logging.info("------------- Launching Pathfinder -------------")
     app = QtWidgets.QApplication(sys.argv)
+    monitor = KeyMonitor()
+    monitor.keyPressed.connect(print)
+    monitor.start_monitoring()
     Controller = Controller()
     Controller.Show_FirstWindow()
     sys.exit(app.exec_())
