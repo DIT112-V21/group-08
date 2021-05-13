@@ -88,4 +88,8 @@ stylesheet = '''
     color: white;
 }
 
+#QLabel#TitleContent{
+    color: #FFFFFF;
+}
+
 '''

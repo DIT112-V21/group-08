@@ -64,6 +64,11 @@ class ThreadSpeedometer(QThread):
             time.sleep(0.1)
             self._signal.emit(i)
 
+    @property
+    def signal(self):
+        return self._signal
+
+
 class Widget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -97,7 +102,7 @@ class Widget(QtWidgets.QWidget):
     def toLog(self, txt):
         self.LogOutputTxt.append(txt)
 
-# MQTT Stuff
+#MQTT Stuff
 broker_address = "localhost"
 manualClient = mqtt.Client("Manual-Control")
 manualClient.connect(broker_address)
@@ -107,7 +112,7 @@ manualClient.subscribe("speed")
 def on_connect(client, userdata, flags, rc):
     print("Connected")
 
-# PyQt5
+#PyQt5
 class WindowMain(object):
 
     global x
@@ -174,7 +179,7 @@ class WindowMain(object):
         self.buttonBack.setObjectName("buttonBack")
 
         self.buttonVoiceControl = QtWidgets.QPushButton(windowmain)
-        self.buttonVoiceControl.setGeometry(QtCore.QRect(40, 330, 90, 65))
+        self.buttonVoiceControl.setGeometry(QtCore.QRect(10, 330, 120, 70))
         self.buttonVoiceControl.setStyleSheet("")
         self.buttonVoiceControl.setObjectName("buttonVoiceControl")
 
@@ -199,6 +204,8 @@ class WindowMain(object):
         self.sliderSpeed.setOrientation(QtCore.Qt.Vertical)
         self.sliderSpeed.setObjectName("sliderSpeed")
         self.sliderSpeed.setRange(0, 100)
+        self.sliderSpeed.setToolTip("<b>Control Car's Speed</b> ")
+
 
         self.sliderSpeed.valueChanged[int].connect(self.changeValue)
 
@@ -229,7 +236,7 @@ class WindowMain(object):
 
     def secondThread(self):
         self.thread = ThreadSpeedometer()
-        self.thread._signal.connect(self.signal_accept)
+        self.thread.signal.connect(self.signal_accept)
         self.thread.start()
 
 
@@ -241,6 +248,7 @@ class WindowMain(object):
         _translate = QtCore.QCoreApplication.translate
         windowMain.setWindowTitle(_translate("windowMain", "Path Finder"))
         self.buttonBrake.setText(_translate("windowMain", "Brake"))
+        self.buttonBrake.setToolTip("<b>Instant Stop</b> ")
         self.buttonForward.setText(_translate("windowMain", "Forward"))
         self.buttonLeft.setText(_translate("windowMain", "Left"))
         self.buttonRight.setText(_translate("windowMain", "Right"))
@@ -248,12 +256,16 @@ class WindowMain(object):
         self.buttonVoiceControl.setText(_translate("windowMain", "Voice Control"))
         self.buttonVoiceControl.setIcon(QIcon('voice.png'))
         self.buttonVoiceControl.setStyleSheet("background-color:green")
+        self.buttonVoiceControl.setToolTip("<b>Switch To Voice Command</b> ")
         self.buttonHelp.setText(_translate("windowMain", "How to use"))
         self.buttonHelp.setIcon(QIcon('help.png'))
         self.buttonHelp.setStyleSheet("background-color: yellow")
+        self.buttonHelp.setToolTip("<b>Help</b> window")
         self.buttonLogging.setText(_translate("windowMain", "Logging"))
+        self.buttonLogging.setToolTip("<b>Command's History</b> window")
         self.buttonExit.setText(_translate("windowMain", "Exit"))
         self.buttonExit.setStyleSheet("background-color:brown")
+        self.buttonExit.setToolTip("<b>Terminate everything</b> ")
         self.buttonLogging.setIcon(QIcon('history.png'))
         self.buttonBrake.setIcon(QIcon('brakes.png'))
 
@@ -528,7 +540,8 @@ class KeyMonitor(QtCore.QObject):
         except:
             pass
 
-    def publish(self, topic, message):
+    @staticmethod
+    def publish(topic, message):
         print(manualClient.publish(topic, message), " Action: ", message)
 
     def stop_monitoring(self):
