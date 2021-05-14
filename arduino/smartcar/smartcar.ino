@@ -19,51 +19,71 @@ SimpleCar car(control);
 
 void setup() {
     Serial.begin(9600);
-    //Uncomment line below
-    //mqtt.begin("localhost", 1883, WiFi);
+    mqtt.begin("localhost", 1883, WiFi);
     // Will connect to localhost port 1883 be default
     if (mqtt.connect("arduino", "public", "public")) {
         mqtt.subscribe("/", 2); // Subscribing to topic "/"
-        mqtt.subscribe("speed", 2); //Subscribing to topic "speed"
         mqtt.onMessage(+[](String topic, String message) {
-          Serial.println(message);
-            if(topic == "/"){
-              if(message == "w") {
-                car.setSpeed(manualSpeed);
-                car.setAngle(0);
-                Serial.println("XXX");
-              }
-              else if(message == "stop") {
-                car.setSpeed(0);
-                car.setAngle(0);
-              }
-              else if(message == "s") {
-                car.setSpeed(-manualSpeed);
-                car.setAngle(0);
-              }
-              else if(message == "d") {
-                car.setSpeed(manualSpeed);
-                car.setAngle(rDegrees);
-              }
-              else if(message == "a") {
-                car.setSpeed(manualSpeed);
-                car.setAngle(lDegrees);
-              }
-              else {
-                car.setSpeed(0);
-                car.setAngle(0);
-              }
-            }
-            if(topic == "speed"){
-              car.setSpeed(message.toInt());
-              car.setAngle(0);
-            }
+          handleInput(message);
+          }
+      );
     }
-            
-            
-        );}
 }
 
+
+void handleInput(String message){
+
+    if(message == "w") {
+      car.setSpeed(manualSpeed);
+      car.setAngle(0);
+    }
+    else if(message == "stop") {
+      car.setSpeed(0);
+      car.setAngle(0);
+    }
+    else if(message == "s") {
+      car.setSpeed(-manualSpeed);
+      car.setAngle(0);
+    }
+    else if(message == "d") {
+      car.setSpeed(manualSpeed);
+      car.setAngle(rDegrees);
+    }
+    else if(message == "a") {
+      car.setSpeed(manualSpeed);
+      car.setAngle(lDegrees);
+    }
+    else if(message == "q") {
+      if ((manualSpeed - 10) >= 0) { // to stop the car from reversing when decrasing speed
+                manualSpeed = manualSpeed - 10;
+                Serial.println(manualSpeed);
+                if (goingForward) {
+                  car.setSpeed(manualSpeed);
+                } else {
+                  car.setSpeed(-manualSpeed);
+                }
+            }
+    }
+    else if(message == "e") {
+        if ((manualSpeed + 10) <= 100) { // car can't go faster than 100
+                manualSpeed = manualSpeed + 10;
+                Serial.println(manualSpeed);
+                if (goingForward) {
+                  car.setSpeed(manualSpeed);
+                } else {
+                  car.setSpeed(-manualSpeed);
+                }
+            }
+        
+    }
+    
+    
+    else {
+      car.setSpeed(0);
+      car.setAngle(0);
+    }
+  
+}
 
 // Start server in terminal with: /usr/local/sbin/mosquitto
 
@@ -79,7 +99,6 @@ void setup() {
 void loop() {
     if (mqtt.connected()) {
         //mqtt.publish("/", "Hello");
-        //mqtt.publish("speed", manualSpeed);
         mqtt.loop();
     }
 }
