@@ -4,7 +4,6 @@
 
 MQTTClient mqtt;
 
-
 const int lDegrees = -90; // degrees to turn left
 const int rDegrees = 90;  // degrees to turn right
 int manualSpeed = 70;
@@ -31,6 +30,9 @@ DirectionalOdometer rightOdometer{
 
 const int GYROSCOPE_OFFSET = 37;
 GY50 gyro(arduinoRuntime, GYROSCOPE_OFFSET);
+#ifndef __SMCE__
+WiFiClient net;
+#endif
 
 SmartCar car(arduinoRuntime, control, gyro, leftOdometer, rightOdometer);
 
@@ -50,8 +52,12 @@ SmartCar car(arduinoRuntime, control, gyro, leftOdometer, rightOdometer);
 
 void setup() {
     Serial.begin(9600);
-    // IMPORTANT: Uncomment line bellow (line 54) before compiling, causes error in CI for some reason but works perfectly fine in SMCE
+    // Hopefully this will let us get bast the Arduino_CLI Continuous Integration
+    #ifndef __SMCE__
+    mqtt.begin(net);
+    #else
     mqtt.begin("localhost", 1883, WiFi);
+    #endif
     // Will connect to localhost port 1883 be default
     if (mqtt.connect("arduino", "public", "public")) {
         mqtt.subscribe("/", 2);    // Subscribing to topic "/"
@@ -112,10 +118,7 @@ void setup() {
 
 
 void loop() {
-    if (mqtt.connected()) {
-        mqtt.publish("/distance", String(rightOdometer.getDistance()));
-        gyro.update();
-        mqtt.publish("/rotation", String(gyro.getHeading()));
+    if (mqtt.connected()) { 
         mqtt.loop();
     }
 }
@@ -145,19 +148,33 @@ void waitStop(){
 }
 //Generalized turning methods into one and made it so it can turn left or right depending on what is quickest 
 void rotateTo(int startGyro, int roTo){ 
-    gyro.update();
     rightMotor.setSpeed(0);
     leftMotor.setSpeed(0);
     int gyroCurrent = startGyro;
+    int checkDistance = (roTo - startGyro);
+    int anotherCheck = (360 - abs(checkDistance));  
+    Serial.println(startGyro);
 
-    do {
-        rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
-        leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
-        gyro.update();
-        gyroCurrent = gyro.getHeading();
-        Serial.println(gyroCurrent);
-      
-    } while(gyroCurrent != roTo);
-    rightMotor.setSpeed(0);
-    leftMotor.setSpeed(0);
+    while (gyroCurrent != roTo){
+      gyro.update();
+      gyroCurrent = car.getHeading();
+     if(checkDistance < 0 && abs(checkDistance) <= anotherCheck ){
+      rightMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * manualSpeed); 
+     }
+     else if(checkDistance < 0 && abs(checkDistance) > anotherCheck ){
+      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed); 
+     }
+     else if(checkDistance > 0 && abs(checkDistance) <= anotherCheck){
+      rightMotor.setSpeed(SPEED_REDUCE * manualSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
+     }
+     else if(checkDistance > 0 && abs(checkDistance) > anotherCheck){
+      rightMotor.setSpeed(SPEED_REDUCE * -manualSpeed);
+      leftMotor.setSpeed(SPEED_REDUCE * manualSpeed);
+     }
+     
+    }
+    car.setSpeed(0);
 }
