@@ -88,7 +88,7 @@ stylesheet = '''
 }
 
 #labelVoiceExample{
-    color: white;
+    color: red;
 }
 
 #QLabel#TitleContent{
