@@ -1,4 +1,8 @@
-INFO : 2021-05-19 22:38:49,837 : ------------- Launching Pathfinder -------------
-INFO : 2021-05-19 22:38:49,932 : Opening main window
-INFO : 2021-05-19 22:39:07,021 : Pressed brake button
-INFO : 2021-05-19 22:39:12,093 : --------------- Exiting Program ---------------
+INFO : 2021-05-20 11:16:15,637 : ------------- Launching Pathfinder -------------
+INFO : 2021-05-20 11:16:15,687 : Opening main window
+INFO : 2021-05-20 11:16:22,389 : Pressed forward button
+INFO : 2021-05-20 11:16:22,720 : Pressed left button
+INFO : 2021-05-20 11:16:23,010 : Pressed back button
+INFO : 2021-05-20 11:16:23,315 : Pressed right button
+INFO : 2021-05-20 11:16:23,940 : Pressed brake button
+INFO : 2021-05-20 11:16:27,780 : --------------- Exiting Program ---------------
