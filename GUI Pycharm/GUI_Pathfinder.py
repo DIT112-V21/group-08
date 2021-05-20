@@ -158,6 +158,7 @@ class WindowMain(object):
         self.buttonBrake.setAutoFillBackground(False)
         self.buttonBrake.setObjectName("buttonBrake")
 
+
         self.buttonForward = QtWidgets.QPushButton(windowmain)
         self.buttonForward.setGeometry(QtCore.QRect(160, 40, 111, 81))
         self.buttonForward.setStyleSheet("")
@@ -234,6 +235,7 @@ class WindowMain(object):
         self.retranslateUi(windowmain)
         QtCore.QMetaObject.connectSlotsByName(windowmain)
 
+
     def secondThread(self):
         self.thread = ThreadSpeedometer()
         self.thread.signal.connect(self.signal_accept)
@@ -305,6 +307,7 @@ class WindowMain(object):
         self.buttonExit.clicked.connect(lambda: self.exitProgram())
         self.buttonLogging.clicked.connect(lambda: os.startfile("activeLog.log"))
 
+
     @staticmethod
     def publish(topic, message):
         print(manualClient.publish(topic, message), " Action: ", message)
@@ -350,7 +353,7 @@ class UiSecondWindow(object):
         _translate = QtCore.QCoreApplication.translate
         uisecondwindow.setWindowTitle(_translate("uisecondwindow", "Voice Window"))
         self.labelVoiceExample.setText(_translate("uisecondwindow",
-                                                  '<html><head/><body><p><span>Example: "Drive '
+                                                  '<html><head/><body><p><span><b>Example:</b> "Drive '
                                                   'forward"</span></p></body></html>'))
         self.pushButton.setIcon(QIcon('record.png'))
         self.pushButton.setText(_translate("uisecondwindow", "Click, then say a command"))
@@ -470,6 +473,8 @@ class UiThirdWindow(object):
         self.retranslateUi(uithirdwindow)
         QtCore.QMetaObject.connectSlotsByName(uithirdwindow)
 
+
+
     def retranslateUi(self, uithirdwindow):
         _translate = QtCore.QCoreApplication.translate
         uithirdwindow.setWindowTitle(_translate("uithirdwindow", "How to use"))
@@ -514,6 +519,7 @@ class UiThirdWindow(object):
                                        "<html><head/><body><p><span style=\" color:black;\">"
                                        "Logging : To show all the commands during the current session"
                                        "</span></p></body></html>"))
+
 
 
 class KeyMonitor(QtCore.QObject):
@@ -573,7 +579,7 @@ class Controller:
     def Show_ThirdWindow(self):
         self.ThirdWindow = QtWidgets.QMainWindow()
         self.ui = UiThirdWindow()
-        self.ThirdWindow.setWindowIcon(QtGui.QIcon('Car icon.png'))
+        self.ThirdWindow.setWindowIcon(QtGui.QIcon('help icon.png'))
         self.ui.setupUi(self.ThirdWindow)
         self.ThirdWindow.show()
 

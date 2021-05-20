@@ -9,6 +9,9 @@ stylesheet = '''
     background-image: url(smartcar2.png)
 }
 
+#Ui_ThirdWindow{
+    background-image: url(how to use.png)
+}
 .QPushButton
 {
     border-radius: 10px;
