@@ -12,6 +12,8 @@ import speech_recognition as sr
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSignal, QThread
 from PyQt5.QtWidgets import QProgressBar
+from ibm_watson import TextToSpeechV1
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 import design
 import logging
@@ -330,6 +332,7 @@ class UiSecondWindow(object):
         uisecondwindow.setMaximumSize(QtCore.QSize(400, 270))
         uisecondwindow.setObjectName("Ui_SecondWindow")
         uisecondwindow.setStyleSheet(design.stylesheet)
+        uisecondwindow.setWindowModality(QtCore.Qt.ApplicationModal)
 
         self.centralWidget = QtWidgets.QWidget(uisecondwindow)
         self.centralWidget.setObjectName("centralWidget")
@@ -368,7 +371,7 @@ class UiSecondWindow(object):
             with sr.Microphone() as source:
                 try:
                     logging.info("Recording voice")
-                    audio = r.listen(source)
+                    audio = r.listen(source, 3, 5)
                     text = r.recognize_google(audio)
                     logging.info("You said: '{}'".format(text))
                     self.labelVoiceExample.setText("Last command: '{}'".format(text))
