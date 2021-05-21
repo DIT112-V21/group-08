@@ -1,6 +1,11 @@
 #include <MQTT.h>
 #include <WiFi.h>
 #include <Smartcar.h>
+#include <vector>
+
+#ifdef __SMCE__
+#include <OV767X.h>
+#endif
 
 MQTTClient mqtt;
 
@@ -11,6 +16,7 @@ bool goingForward = true; //true is forward, false is backward
 const unsigned long LEFT_PULSES_PER_METER  = 600;
 const unsigned long RIGHT_PULSES_PER_METER = 740;
 const double SPEED_REDUCE = 0.3;
+std::vector<char> frameBuffer;
 
 ArduinoRuntime arduinoRuntime;
 BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
@@ -52,11 +58,12 @@ SmartCar car(arduinoRuntime, control, gyro, leftOdometer, rightOdometer);
 
 void setup() {
     Serial.begin(9600);
-    // Hopefully this will let us get bast the Arduino_CLI Continuous Integration
-    #ifndef __SMCE__
-    mqtt.begin(net);
-    #else
+    #ifdef __SMCE__
+    Camera.begin(VGA, RGB888, 30);
+    frameBuffer.resize(Camera.width() * Camera.height() * Camera.bytesPerPixel());
     mqtt.begin("localhost", 1883, WiFi);
+    #else
+    mqtt.begin(net);
     #endif
     // Will connect to localhost port 1883 be default
     if (mqtt.connect("arduino", "public", "public")) {
@@ -120,7 +127,20 @@ void setup() {
 void loop() {
     if (mqtt.connected()) { 
         mqtt.loop();
+        const auto currentTime = millis();
+    #ifdef __SMCE__
+        static auto previousFrame = 0UL;
+        if(currentTime - previousFrame >= 65){
+          previousFrame = currentTime;
+          Camera.readFrame(frameBuffer.data());
+          mqtt.publish("/camera", frameBuffer.data(), frameBuffer.size(), false, 0);
+        }
+    #endif    
     }
+    
+    #ifdef __SMCE__
+    delay(35);
+    #endif
 }
 
 void goForward(double distance) {
@@ -153,7 +173,6 @@ void rotateTo(int startGyro, int roTo){
     int gyroCurrent = startGyro;
     int checkDistance = (roTo - startGyro);
     int anotherCheck = (360 - abs(checkDistance));  
-    Serial.println(startGyro);
 
     while (gyroCurrent != roTo){
       gyro.update();
