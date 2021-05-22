@@ -30,17 +30,35 @@ We use Swift and SwiftUI to build the app which is responsible for presenting th
 
 Python will be used to develop our alternative user interfaces, responsible for manual controls via an interface along with keyboard input, as well as smart voice recognition system to verbally deliver commands to the car and comprehend basic synonyms for driving.
 
-![Main Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Main%20window.png) ![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Voice%20Control%20Window.png) ![Help Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Help%20Window.png)
+![Main Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Main%20window.png) 
+
+
+![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Voice%20Control%20Window.png) 
+
+
+![Help Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Help%20Window.png)
 
 
 ### C++
 
 C++ together with MQTT will be the bridge between our various interfaces and the car(SMCE). Arduino code will be responsible for executing the various commands given to the car to perform accordingly.
 
+## Installation Guide:
+There are a few things you need to set in place before kicking off:
+
+- Download Arduino IDE
+- Download SMCE-gd
+- Download PyCharm
+- Download Swift
+- Install PyCharm Libraries
+- Clone the repository: https://github.com/DIT112-V21/group-08
+
 ## User Manual(Set-up):
 
-## Resources
 
+
+
+## Resources
 ### Sofware(Dependenciess):
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
