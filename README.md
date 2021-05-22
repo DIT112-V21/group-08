@@ -2,7 +2,7 @@
 # What are we making?
 
 We will endeavour to make a system to control the emulated car in the tool provided to us. We will write code for the emulated car to give it the capabilities we desire as well as to create an interface with which to control the car remotely & safely.
-The following is a list of the **Features** of the system we plan to develop develop: \
+The following is a brief list of the **Features** of the system we plan to develop develop: \
       1: The car will be controllable using a joystick or "arrow key" like interface. \
       2: The car will be controllable with voice commands. \
       3: The car will be controllable via a map with pathfinding functionalities.
@@ -19,6 +19,16 @@ To build the system described above we are planning to use the following coding 
 The reason we have chosen to use these different tools is to leverage the different strenghts of the utilized technologies as well as the individual strengths of our development team.
 
 From a business standpoint we argue that these different interfaces are necessary for different users. Some drivers may want total control over the car, which is why we are enabling  manual controls in our python application & arrow keys control. Others may want a more hands off experience with voice control, also in python. Lastly, some passengers may want a layed back and fully autonomous driving experience, which is why we are implementing the pathfinding app in swift.
+
+## Features Overview:
+
+[Basic & Advanced Obstacle Avoidance](https://github.com/DIT112-V21/group-08/wiki/Milestone-1:-Basic-Movement-&-Basic-Obstacle-Avoidance)
+
+[Mapping & Pathfinding capabilities](https://github.com/DIT112-V21/group-08/wiki/Milestone-2:-Mapping-&-Pathfinder-&-Advanced-Obstacle-Avoidance)
+
+[Controller Interface](https://github.com/DIT112-V21/group-08/wiki/Milestone-3:-Controller-Interface)
+
+[Manual & Voice control](https://github.com/DIT112-V21/group-08/wiki/Milestone-4:-Voice-Control)
 
 ### Swift
 
@@ -60,12 +70,13 @@ There are a few things you need to set in place before kicking off:
 
 ## Resources
 ### Sofware(Dependenciess):
-
+The following Software libraries, APIs and External services were used during the development of the PathFinder's Both Interfaces & General Functionalities:
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [SMCE-gd](https://github.com/ItJustWorksTM/smce-gd)
 - [Smartcar Shield](https://platisd.github.io/smartcar_shield/index.html)
 - [Swift](https://swift.org/download/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
+- [DialogFlow API](https://cloud.google.com/dialogflow/es/docs)
 - [C++](https://www.jetbrains.com/clion/?gclid=CjwKCAjwtJ2FBhAuEiwAIKu19nQfybBlmVgNuk8aOl7V7R__jwzHdAKu_jqeAhlLfO1aTcjLJXvwyRoCoK8QAvD_BwE&gclsrc=aw.ds)
 
 # Development Team:
