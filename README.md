@@ -1,4 +1,14 @@
-# Group-08 PathFinder
+# ![](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Car%20icon.png)Group-08 PathFinder 
+![](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Path%20Finder.png)
+# Table of Contents
+- [What are we making](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#what-are-we-making)
+- [Why are we making it / What problems does it solve](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#why-are-we-making-it-what-problems-does-it-solve)
+- [How are we going to make it](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#how-are-we-going-to-make-it)
+- [Features Overview](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#features-overview)
+- [Installation Guide](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#installation-guide)
+- [User Manual(Set-up)](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#user-manualset-up)
+- [Resources](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#resources)
+- [Development Team](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#development-team)
 # What are we making?
 
 We will endeavour to make a system to control the emulated car in the tool provided to us. We will write code for the emulated car to give it the capabilities we desire as well as to create an interface with which to control the car remotely & safely.
@@ -51,7 +61,7 @@ Python will be used to develop our alternative user interfaces, responsible for 
 
 ### C++
 
-C++ together with MQTT will be the bridge between our various interfaces and the car(SMCE). Arduino code will be responsible for executing the various commands given to the car to perform accordingly.
+C++ together with MQTT will be the bridge between our various interfaces and the car(SMCE). Arduino code will be responsible for executing the several commands given to the car to perform accordingly.
 
 ## Installation Guide:
 There are a few things you need to set in place before kicking off:
