@@ -14,14 +14,24 @@ stylesheet = '''
 }
 .QPushButton
 {
-    border-radius: 10px;
+    border-radius: 11px;
     background-color: white;
     border: 1px solid black;
 }
 
 #buttonForward{
     background-color: white;
+    color: black;
+    border: 2px solid Navy;
+    box-shadow: 0 9px 17px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.20);
+    text-align: center;
+    text-decoration: none;
     border-radius: 20px;
+    font:bold 13px;
+    transition: all 4s;
+    cursor: pointer;
+    display: inline-block;  
+    
 }
 
 #buttonForward:hover{
@@ -34,7 +44,13 @@ stylesheet = '''
 
 #buttonLeft{
     background-color: white;
+    color: black;
+    border: 2px solid Navy;
+    box-shadow: 0 9px 17px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.20);
+    text-align: center;
+    text-decoration: none;
     border-radius: 20px;
+    font:bold 13px;
 }
 
 #buttonLeft:hover{
@@ -47,7 +63,13 @@ stylesheet = '''
 
 #buttonRight{
     background-color: white;
+    color: black;
+    border: 2px solid Navy;
+    box-shadow: 0 9px 17px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.20);
+    text-align: center;
+    text-decoration: none;
     border-radius: 20px;
+    font:bold 13px;
 }
 
 #buttonRight:hover{
@@ -60,7 +82,13 @@ stylesheet = '''
 
 #buttonBack{
     background-color: white;
+    color: black;
+    border: 2px solid Navy;
+    box-shadow: 0 9px 17px 0 rgba(0,0,0,0.3), 0 7px 20px 0 rgba(0,0,0,0.20);
+    text-align: center;
+    text-decoration: none;
     border-radius: 20px;
+    font:bold 13px;
 }
 
 #buttonBack:hover{
@@ -88,7 +116,7 @@ stylesheet = '''
 }
 
 #labelVoiceExample{
-    color: red;
+    color: #FF69B4;
 }
 
 #QLabel#TitleContent{
