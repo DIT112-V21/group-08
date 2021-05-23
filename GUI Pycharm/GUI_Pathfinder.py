@@ -246,7 +246,7 @@ class WindowMain(object):
 
     def signal_accept(self, msg):
         self.speedoBar.setValue(int(x))
-        self.speedoMeter.setText("Current Speed:" + str(x))
+        self.speedoMeter.setText("" + str(x))
 
     def retranslateUi(self, windowMain):
         _translate = QtCore.QCoreApplication.translate
@@ -363,7 +363,7 @@ class UiSecondWindow(object):
         uisecondwindow.setWindowTitle(_translate("uisecondwindow", "Voice Window"))
         self.labelVoiceExample.setText(_translate("uisecondwindow",
                                                   '<html><head/><body><p><span><b><u>Example:</u></b> "Drive '
-                                                  'forward"</span></p></body></html>'))
+                                                  'Forward"</span></p></body></html>'))
         self.pushButton.setIcon(QIcon('record.png'))
         self.pushButton.setText(_translate("uisecondwindow", "Click, then say a command"))
 
