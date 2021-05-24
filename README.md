@@ -1,14 +1,14 @@
-# ![](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Car%20icon.png)Group-08 PathFinder 
-![](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Path%20Finder.png)
+# ![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Car%20icon.png)Group-08 PathFinder 
+![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Path%20Finder.png)
 # Table of Contents
-- [What are we making](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#what-are-we-making)
-- [Why are we making it / What problems does it solve](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#why-are-we-making-it-what-problems-does-it-solve)
-- [How are we going to make it](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#how-are-we-going-to-make-it)
-- [Features Overview](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#features-overview)
-- [Installation Guide](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#installation-guide)
-- [User Manual(Set-up)](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#user-manualset-up)
-- [Resources](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#resources)
-- [Development Team](https://github.com/DIT112-V21/group-08/tree/Documentation-Purposes#development-team)
+- [What are we making](https://github.com/DIT112-V21/group-08#what-are-we-making)
+- [Why are we making it / What problems does it solve](https://github.com/DIT112-V21/group-08#why-are-we-making-it-what-problems-does-it-solve)
+- [How are we going to make it](https://github.com/DIT112-V21/group-08#how-are-we-going-to-make-it)
+- [Features Overview](https://github.com/DIT112-V21/group-08#features-overview)
+- [Installation Guide(Set-up)](https://github.com/DIT112-V21/group-08#installation-guide)
+- [User Manual](https://github.com/DIT112-V21/group-08#user-manualset-up)
+- [Resources](https://github.com/DIT112-V21/group-08#resources)
+- [Development Team](https://github.com/DIT112-V21/group-08#development-team)
 # What are we making?
 
 We will endeavour to make a system to control the emulated car in the tool provided to us. We will write code for the emulated car to give it the capabilities we desire as well as to create an interface with which to control the car remotely & safely.
@@ -32,13 +32,13 @@ From a business standpoint we argue that these different interfaces are necessar
 
 ## Features Overview:
 
-[Basic & Advanced Obstacle Avoidance](https://github.com/DIT112-V21/group-08/wiki/Milestone-1:-Basic-Movement-&-Basic-Obstacle-Avoidance)
+- [Basic & Advanced Obstacle Avoidance](https://github.com/DIT112-V21/group-08/wiki/Milestone-1:-Basic-Movement-&-Basic-Obstacle-Avoidance)
 
-[Mapping & Pathfinding capabilities](https://github.com/DIT112-V21/group-08/wiki/Milestone-2:-Mapping-&-Pathfinder-&-Advanced-Obstacle-Avoidance)
+- [Mapping & Pathfinding capabilities](https://github.com/DIT112-V21/group-08/wiki/Milestone-2:-Mapping-&-Pathfinder-&-Advanced-Obstacle-Avoidance)
 
-[Controller Interface](https://github.com/DIT112-V21/group-08/wiki/Milestone-3:-Controller-Interface)
+- [Controller Interface](https://github.com/DIT112-V21/group-08/wiki/Milestone-3:-Controller-Interface)
 
-[Manual & Voice control](https://github.com/DIT112-V21/group-08/wiki/Milestone-4:-Voice-Control)
+- [Manual & Voice control](https://github.com/DIT112-V21/group-08/wiki/Milestone-4:-Voice-Control)
 
 ### Swift
 
@@ -50,42 +50,52 @@ We use Swift and SwiftUI to build the app which is responsible for presenting th
 
 Python will be used to develop our alternative user interfaces, responsible for manual controls via an interface along with keyboard input, as well as smart voice recognition system to verbally deliver commands to the car and comprehend basic synonyms for driving.
 
-![Main Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Main%20window.png) 
+![Main Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Main%20window.png) 
 
 
-![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Voice%20Control%20Window.png) 
+![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Voice%20Control%20Window.png) 
 
 
-![Help Window](https://github.com/DIT112-V21/group-08/blob/Documentation-Purposes/GUI%20Pycharm/Help%20Window.png)
+![Help Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Help%20Window.png)
 
 
 ### C++
 
 C++ together with MQTT will be the bridge between our various interfaces and the car(SMCE). Arduino code will be responsible for executing the several commands given to the car to perform accordingly.
 
-## Installation Guide:
+## Installation Guide(Set-up):
 There are a few things you need to set in place before kicking off:
 
 - Download Arduino IDE
 - Download SMCE-gd
 - Download PyCharm
 - Download Swift
-- Install PyCharm Libraries
 - Clone the repository: https://github.com/DIT112-V21/group-08
+- Install PyCharm Libraries
+  - Click on "File" Top-Left
+  - Select "Settings"
+  - Click on the arrow line of "group-08"
+  - Choose "Python Interpreter"
+  - Press on the "+" button to add the libraries (packages)
 
-## User Manual(Set-up):
 
+![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Python%20Libraries.png)
 
-
-
+## User Manual:
+-
+-
+-
+-
+-
 ## Resources
-### Sofware(Dependenciess):
+### Sofware(Dependencies):
 The following Software libraries, APIs and External services were used during the development of the PathFinder's Both Interfaces & General Functionalities:
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [SMCE-gd](https://github.com/ItJustWorksTM/smce-gd)
 - [Smartcar Shield](https://platisd.github.io/smartcar_shield/index.html)
 - [Swift](https://swift.org/download/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
+  - PyCharm Libraries
 - [DialogFlow API](https://cloud.google.com/dialogflow/es/docs)
 - [C++](https://www.jetbrains.com/clion/?gclid=CjwKCAjwtJ2FBhAuEiwAIKu19nQfybBlmVgNuk8aOl7V7R__jwzHdAKu_jqeAhlLfO1aTcjLJXvwyRoCoK8QAvD_BwE&gclsrc=aw.ds)
 
