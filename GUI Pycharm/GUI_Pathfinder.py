@@ -12,8 +12,6 @@ import speech_recognition as sr
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSignal, QThread
 from PyQt5.QtWidgets import QProgressBar
-from ibm_watson import TextToSpeechV1
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 import design
 import logging
