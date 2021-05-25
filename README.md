@@ -81,7 +81,7 @@ There are a few things you need to set in place before kicking off:
 
 ![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Python%20Libraries.png)
 
-- *Following instructions for MacOS only*
+- **Following instructions for MacOS only**
   - Install Xcode (also installs Swift and SwiftUI)
   - Open SMCE Remote.xcworkspace in Xcode and run the **iPhone 12 Pro** simulator. 
   > It is important to use the simulator for this specific device since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
