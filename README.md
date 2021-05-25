@@ -78,7 +78,7 @@ There are a few things you need to set in place before kicking off:
   - Click on the arrow line of "group-08"
   - Choose "Python Interpreter"
   - Press on the "+" button to add the libraries (packages)
-- *Following instruction MacOS only*
+- *Following instructions for MacOS only*
   - Install Xcode (also installs Swift and SwiftUI)
   - Open SMCE Remote.xcworkspace in Xcode and run the **iPhone 12 Pro** simulator. 
   > It is important to use this simulator since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
