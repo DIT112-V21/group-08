@@ -83,10 +83,10 @@ There are a few things you need to set in place before kicking off:
   - Open SMCE Remote.xcworkspace in Xcode and run the **iPhone 12 Pro** simulator. 
   > It is important to use the simulator for this specific device since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
   - *If any CocoaPods issues arise* Install CocoaPods with following terminal commands
-  > If using an Apple Silicon computer try adding *arch -x86_64* before each command.
     - **$ sudo gem install cocoapods**
     - *Navigate to xcode project directory*
     - **$ pod install**
+    > If using an Apple Silicon computer try adding *arch -x86_64* before each command if you are having issues.
   - *If any package dependencies issues arise*
     - In Xcode navigate to File > Swift Packages > Add Package Dependency
     - Select SMCE Remote as project
