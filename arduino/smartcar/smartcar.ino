@@ -104,8 +104,50 @@ void setup() {
               int roTo = 45;
               rotateTo(gyro.getHeading(), roTo);
             }
-            else if(message == "w") {
+            else if(message == "wait") {
               waitStop();
+            }
+            else if(message == "w"){
+              car.setSpeed(manualSpeed);
+              car.setAngle(0);
+            }
+            else if(message == "stop") {
+              car.setSpeed(0);
+              car.setAngle(0);
+            }
+            else if(message == "s") {
+              car.setSpeed(-manualSpeed);
+              car.setAngle(0);
+            }
+            else if(message == "d") {
+              car.setSpeed(manualSpeed);
+              car.setAngle(rDegrees);
+            }
+            else if(message == "a") {
+              car.setSpeed(manualSpeed);
+              car.setAngle(lDegrees);
+            }
+            else if(message == "q") {
+               if ((manualSpeed - 10) >= 0) { // to stop the car from reversing when decrasing speed
+                manualSpeed = manualSpeed - 10;
+                Serial.println(manualSpeed);
+                if (goingForward) {
+                  car.setSpeed(manualSpeed);
+                } else {
+                  car.setSpeed(-manualSpeed);
+                }
+              }
+            }
+            else if(message == "e") {
+              if ((manualSpeed + 10) <= 100) { // car can't go faster than 100
+                manualSpeed = manualSpeed + 10;
+                Serial.println(manualSpeed);
+                if (goingForward) {
+                  car.setSpeed(manualSpeed);
+                } else {
+                  car.setSpeed(-manualSpeed);
+                }
+              }
             }
             else { 
               goForward(message.toDouble());
