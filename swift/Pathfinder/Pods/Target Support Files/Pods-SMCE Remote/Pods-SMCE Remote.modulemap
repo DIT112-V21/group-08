@@ -1,0 +1,6 @@
+framework module Pods_SMCE_Remote {
+  umbrella header "Pods-SMCE Remote-umbrella.h"
+
+  export *
+  module * { export * }
+}
