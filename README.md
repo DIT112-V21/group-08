@@ -70,7 +70,6 @@ There are a few things you need to set in place before kicking off:
 - Download Arduino IDE
 - Download SMCE-gd
 - Download PyCharm
-- Download Swift
 - Download Eclipse Mosquitto MQTT
 - Clone the repository: https://github.com/DIT112-V21/group-08
 - Install PyCharm Libraries
@@ -79,6 +78,19 @@ There are a few things you need to set in place before kicking off:
   - Click on the arrow line of "group-08"
   - Choose "Python Interpreter"
   - Press on the "+" button to add the libraries (packages)
+- *Following instruction MacOS only*
+  - Install Xcode (also installs Swift and SwiftUI)
+  - Open SMCE Remote.xcworkspace in Xcode and run the **iPhone 12 Pro** simulator. 
+  > It is important to use this simulator since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
+  - *If any CocoaPods issues arise* Install CocoaPods with following terminal commands
+    - **$ sudo gem install cocoapods**
+    - *Navigate to xcode project directory*
+    - **$ pod install**
+  - *If any package dependencies issues arise*
+    - In Xcode navigate to File > Swift Packages > Add Package Dependency
+    - Select SMCE Remote as project
+    - Paste this URL: https://github.com/lucasbrown/swiftui-visual-effects
+    - Select master branch or latest release
 
 
 ![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Python%20Libraries.png)
