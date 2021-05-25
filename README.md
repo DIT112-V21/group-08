@@ -49,7 +49,7 @@ We use Swift and SwiftUI to build the app which is responsible for presenting th
 
 ### Python
 
-Python will be used to develop our alternative user interfaces, responsible for manual controls via an interface along with keyboard input, as well as smart voice recognition system to verbally deliver commands to the car and comprehend basic synonyms for driving.
+Python will be used to develop our alternative user interface, responsible for manual controls via the interface along with keyboard input, as well as smart voice recognition system to verbally deliver commands to the car and comprehend basic synonyms for driving purposes.
 
 
 ### C++
