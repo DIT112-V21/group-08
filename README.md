@@ -78,6 +78,7 @@ There are a few things you need to set in place before kicking off:
   - Click on the arrow line of "group-08"
   - Choose "Python Interpreter"
   - Press on the "+" button to add the libraries (packages)
+
 ![](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Python%20Libraries.png)
 
 - *Following instructions for MacOS only*
