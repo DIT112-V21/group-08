@@ -5,16 +5,16 @@
 - [Why are we making it / What problems does it solve](https://github.com/DIT112-V21/group-08#why-are-we-making-it-what-problems-does-it-solve)
 - [How are we going to make it](https://github.com/DIT112-V21/group-08#how-are-we-going-to-make-it)
 - [Features Overview](https://github.com/DIT112-V21/group-08#features-overview)
-- [Installation Guide(Set-up)](https://github.com/DIT112-V21/group-08#installation-guide)
-- [User Manual](https://github.com/DIT112-V21/group-08#user-manualset-up)
+- [Installation Guide(Set-up)](https://github.com/DIT112-V21/group-08/tree/master#installation-guideset-up)
+- [User Manual](https://github.com/DIT112-V21/group-08/tree/master#user-manual)
 - [Resources](https://github.com/DIT112-V21/group-08#resources)
 - [Development Team](https://github.com/DIT112-V21/group-08#development-team)
 # What are we making?
 
 We will endeavour to make a system to control the emulated car in the tool provided to us. We will write code for the emulated car to give it the capabilities we desire as well as to create an interface with which to control the car remotely & safely.
 The following is a brief list of the **Features** of the system we plan to develop develop: \
-      1: The car will be controllable using a joystick or "arrow key" like interface. \
-      2: The car will be controllable with voice commands. \
+      1: The car will be controllable using manually via interface  & keyboard arrow keys. \
+      2: The car will be controllable with smart voice commands. \
       3: The car will be controllable via a map with pathfinding functionalities.
       
 # Why are we making it? What problems does it solve?
@@ -71,6 +71,7 @@ There are a few things you need to set in place before kicking off:
 - Download SMCE-gd
 - Download PyCharm
 - Download Swift
+- Download Eclipse Mosquitto MQTT
 - Clone the repository: https://github.com/DIT112-V21/group-08
 - Install PyCharm Libraries
   - Click on "File" Top-Left
@@ -98,6 +99,7 @@ The following Software libraries, APIs and External services were used during th
 - [PyCharm](https://www.jetbrains.com/pycharm/)
   - PyCharm Libraries
 - [DialogFlow API](https://cloud.google.com/dialogflow/es/docs)
+- [Eclipse Mosquitto MQTT](https://mosquitto.org/download/)
 - [C++](https://www.jetbrains.com/clion/?gclid=CjwKCAjwtJ2FBhAuEiwAIKu19nQfybBlmVgNuk8aOl7V7R__jwzHdAKu_jqeAhlLfO1aTcjLJXvwyRoCoK8QAvD_BwE&gclsrc=aw.ds)
 
 # Development Team:
@@ -109,5 +111,4 @@ The following Software libraries, APIs and External services were used during th
 - [Erik Sjölund](https://github.com/esjolund)	
 - [Hampus Erlandsson](https://github.com/BrutalFrost)  
 - [Niklas Höglund](https://github.com/NiklasHoglund)   
-
 
