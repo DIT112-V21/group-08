@@ -90,7 +90,7 @@ There are a few things you need to set in place before kicking off:
     - *Navigate to xcode project directory*
     - **$ pod install**
     > If using an Apple Silicon computer try adding *arch -x86_64* before each command if you are having issues.
-  - *If any package dependencies issues arise*
+  - *If any package dependency issues arise*
     - In Xcode navigate to File > Swift Packages > Add Package Dependency
     - Select SMCE Remote as project
     - Paste this URL: https://github.com/lucasbrown/swiftui-visual-effects
