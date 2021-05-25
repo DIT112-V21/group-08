@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AStar",
+        "repositoryURL": "https://github.com/Dev1an/A-Star.git",
+        "state": {
+          "branch": null,
+          "revision": "d058ecc05f48551b1cc3d4e68f365f655f8febcc",
+          "version": "2.1.0"
+        }
+      },
+      {
+        "package": "SwiftUIVisualEffects",
+        "repositoryURL": "https://github.com/lucasbrown/swiftui-visual-effects",
+        "state": {
+          "branch": null,
+          "revision": "b26f8cebd55ff60ed8953768aa818dfb005b5838",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

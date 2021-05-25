@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8306F40526342A8500341642 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8306F40426342A8500341642 /* Node.swift */; };
+		8327A5F8262DE241003F59B7 /* MQTTtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327A5F7262DE241003F59B7 /* MQTTtest.swift */; };
+		8327A5FB262DF281003F59B7 /* MQTTViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327A5FA262DF281003F59B7 /* MQTTViewOld.swift */; };
+		8327A5FF262DF475003F59B7 /* Funcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327A5FE262DF475003F59B7 /* Funcs.swift */; };
+		832CDD1B26396F4500F506CF /* PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CDD1A26396F4500F506CF /* PathFinder.swift */; };
+		832CDD1D2639CF7000F506CF /* WaypointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CDD1C2639CF7000F506CF /* WaypointView.swift */; };
+		832CDD1F2639D7D500F506CF /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CDD1E2639D7D500F506CF /* Waypoint.swift */; };
+		8353C35E2636E34C009E4628 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353C35D2636E34C009E4628 /* GridView.swift */; };
+		83681F51263049D8006DF98E /* SMCEMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83681F50263049D8006DF98E /* SMCEMQTT.swift */; };
+		83681F5526304E7B006DF98E /* ContentViewNOTUSED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83681F5426304E7B006DF98E /* ContentViewNOTUSED.swift */; };
+		836A44562641865A00955496 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A44552641865A00955496 /* Command.swift */; };
+		836DF536263870AD00EA5BC5 /* Astar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF535263870AD00EA5BC5 /* Astar.swift */; };
+		836DF5392638710900EA5BC5 /* SwiftPriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF5382638710900EA5BC5 /* SwiftPriorityQueue.swift */; };
+		836DF54E263897FE00EA5BC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF54D263897FE00EA5BC5 /* ContentView.swift */; };
+		836DF55726389A4700EA5BC5 /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 836DF55626389A4700EA5BC5 /* SwiftUIVisualEffects */; };
+		839EA803262DC8B000A34837 /* SMCE_RemoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839EA802262DC8B000A34837 /* SMCE_RemoteApp.swift */; };
+		839EA805262DC8B000A34837 /* ContentViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839EA804262DC8B000A34837 /* ContentViewOld.swift */; };
+		839EA807262DC8B000A34837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 839EA806262DC8B000A34837 /* Assets.xcassets */; };
+		839EA80A262DC8B000A34837 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 839EA809262DC8B000A34837 /* Preview Assets.xcassets */; };
+		83C0DFD9263431230073467B /* AStar in Frameworks */ = {isa = PBXBuildFile; productRef = 83C0DFD8263431230073467B /* AStar */; };
+		83C0DFDE263431520073467B /* SimpleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0DFDC263431520073467B /* SimpleNode.swift */; };
+		83C0DFDF263431520073467B /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0DFDD263431520073467B /* Graph.swift */; };
+		83C0DFE3263431690073467B /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0DFE1263431690073467B /* SortedArray.swift */; };
+		83C0DFE4263431690073467B /* Step+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0DFE2263431690073467B /* Step+Comparable.swift */; };
+		83C0DFEB263433A50073467B /* GridViewOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0DFEA263433A50073467B /* GridViewOLD.swift */; };
+		F286D454B2C1BE626456154A /* Pods_SMCE_Remote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDDD4874838AFB3F7790295 /* Pods_SMCE_Remote.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2DDDD4874838AFB3F7790295 /* Pods_SMCE_Remote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMCE_Remote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8306F40426342A8500341642 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		8327A5F7262DE241003F59B7 /* MQTTtest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTtest.swift; sourceTree = "<group>"; };
+		8327A5FA262DF281003F59B7 /* MQTTViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTViewOld.swift; sourceTree = "<group>"; };
+		8327A5FE262DF475003F59B7 /* Funcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcs.swift; sourceTree = "<group>"; };
+		832CDD1A26396F4500F506CF /* PathFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathFinder.swift; sourceTree = "<group>"; };
+		832CDD1C2639CF7000F506CF /* WaypointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointView.swift; sourceTree = "<group>"; };
+		832CDD1E2639D7D500F506CF /* Waypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		8353C35D2636E34C009E4628 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		83681F50263049D8006DF98E /* SMCEMQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCEMQTT.swift; sourceTree = "<group>"; };
+		83681F5426304E7B006DF98E /* ContentViewNOTUSED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewNOTUSED.swift; sourceTree = "<group>"; };
+		836A44552641865A00955496 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		836DF535263870AD00EA5BC5 /* Astar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astar.swift; sourceTree = "<group>"; };
+		836DF5382638710900EA5BC5 /* SwiftPriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPriorityQueue.swift; sourceTree = "<group>"; };
+		836DF54D263897FE00EA5BC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		839EA7FF262DC8B000A34837 /* SMCE Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMCE Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		839EA802262DC8B000A34837 /* SMCE_RemoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCE_RemoteApp.swift; sourceTree = "<group>"; };
+		839EA804262DC8B000A34837 /* ContentViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewOld.swift; sourceTree = "<group>"; };
+		839EA806262DC8B000A34837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		839EA809262DC8B000A34837 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		839EA80B262DC8B000A34837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83C0DFDC263431520073467B /* SimpleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleNode.swift; sourceTree = "<group>"; };
+		83C0DFDD263431520073467B /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		83C0DFE1263431690073467B /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		83C0DFE2263431690073467B /* Step+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Step+Comparable.swift"; sourceTree = "<group>"; };
+		83C0DFEA263433A50073467B /* GridViewOLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewOLD.swift; sourceTree = "<group>"; };
+		95F91728DC475CE80B9A9044 /* Pods-SMCE Remote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMCE Remote.release.xcconfig"; path = "Target Support Files/Pods-SMCE Remote/Pods-SMCE Remote.release.xcconfig"; sourceTree = "<group>"; };
+		E234EA9804F5230879293DA2 /* Pods-SMCE Remote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMCE Remote.debug.xcconfig"; path = "Target Support Files/Pods-SMCE Remote/Pods-SMCE Remote.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		839EA7FC262DC8AF00A34837 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C0DFD9263431230073467B /* AStar in Frameworks */,
+				F286D454B2C1BE626456154A /* Pods_SMCE_Remote.framework in Frameworks */,
+				836DF55726389A4700EA5BC5 /* SwiftUIVisualEffects in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83681F3F263048EF006DF98E /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				836DF535263870AD00EA5BC5 /* Astar.swift */,
+				83C0DFEA263433A50073467B /* GridViewOLD.swift */,
+				839EA804262DC8B000A34837 /* ContentViewOld.swift */,
+				8327A5FA262DF281003F59B7 /* MQTTViewOld.swift */,
+				8327A5F7262DE241003F59B7 /* MQTTtest.swift */,
+			);
+			path = OLD;
+			sourceTree = "<group>";
+		};
+		83681F4126304903006DF98E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				836DF5382638710900EA5BC5 /* SwiftPriorityQueue.swift */,
+				8327A5FE262DF475003F59B7 /* Funcs.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		83681F422630490D006DF98E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				836DF54D263897FE00EA5BC5 /* ContentView.swift */,
+				8353C35D2636E34C009E4628 /* GridView.swift */,
+				832CDD1C2639CF7000F506CF /* WaypointView.swift */,
+				83681F5426304E7B006DF98E /* ContentViewNOTUSED.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		83681F4326304912006DF98E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83681F4426304917006DF98E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				832CDD1E2639D7D500F506CF /* Waypoint.swift */,
+				8306F40426342A8500341642 /* Node.swift */,
+				832CDD1A26396F4500F506CF /* PathFinder.swift */,
+				836A44552641865A00955496 /* Command.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		83681F4526304925006DF98E /* MQTT */ = {
+			isa = PBXGroup;
+			children = (
+				83681F50263049D8006DF98E /* SMCEMQTT.swift */,
+			);
+			path = MQTT;
+			sourceTree = "<group>";
+		};
+		839EA7F6262DC8AF00A34837 = {
+			isa = PBXGroup;
+			children = (
+				839EA801262DC8B000A34837 /* SMCE Remote */,
+				839EA800262DC8B000A34837 /* Products */,
+				F40D6B8C919A46859B39B198 /* Pods */,
+				F32F1AA827B93D3C0EA1102E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		839EA800262DC8B000A34837 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				839EA7FF262DC8B000A34837 /* SMCE Remote.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		839EA801262DC8B000A34837 /* SMCE Remote */ = {
+			isa = PBXGroup;
+			children = (
+				839EA802262DC8B000A34837 /* SMCE_RemoteApp.swift */,
+				83681F422630490D006DF98E /* View */,
+				83681F4326304912006DF98E /* ViewModel */,
+				83681F4426304917006DF98E /* Model */,
+				83681F4526304925006DF98E /* MQTT */,
+				83C0DFDB2634313D0073467B /* Tests */,
+				83681F4126304903006DF98E /* Utils */,
+				83681F3F263048EF006DF98E /* OLD */,
+				839EA806262DC8B000A34837 /* Assets.xcassets */,
+				839EA80B262DC8B000A34837 /* Info.plist */,
+				839EA808262DC8B000A34837 /* Preview Content */,
+			);
+			path = "SMCE Remote";
+			sourceTree = "<group>";
+		};
+		839EA808262DC8B000A34837 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				839EA809262DC8B000A34837 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		83C0DFDB2634313D0073467B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				83C0DFDD263431520073467B /* Graph.swift */,
+				83C0DFDC263431520073467B /* SimpleNode.swift */,
+				83C0DFE1263431690073467B /* SortedArray.swift */,
+				83C0DFE2263431690073467B /* Step+Comparable.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F32F1AA827B93D3C0EA1102E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DDDD4874838AFB3F7790295 /* Pods_SMCE_Remote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F40D6B8C919A46859B39B198 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E234EA9804F5230879293DA2 /* Pods-SMCE Remote.debug.xcconfig */,
+				95F91728DC475CE80B9A9044 /* Pods-SMCE Remote.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		839EA7FE262DC8AF00A34837 /* SMCE Remote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 839EA80E262DC8B000A34837 /* Build configuration list for PBXNativeTarget "SMCE Remote" */;
+			buildPhases = (
+				216D3DB4FCB8FC9F4DC74810 /* [CP] Check Pods Manifest.lock */,
+				839EA7FB262DC8AF00A34837 /* Sources */,
+				839EA7FC262DC8AF00A34837 /* Frameworks */,
+				839EA7FD262DC8AF00A34837 /* Resources */,
+				6B83747E02C8E24DF80F1B14 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SMCE Remote";
+			packageProductDependencies = (
+				83C0DFD8263431230073467B /* AStar */,
+				836DF55626389A4700EA5BC5 /* SwiftUIVisualEffects */,
+			);
+			productName = "SMCE Remote";
+			productReference = 839EA7FF262DC8B000A34837 /* SMCE Remote.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		839EA7F7262DC8AF00A34837 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					839EA7FE262DC8AF00A34837 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 839EA7FA262DC8AF00A34837 /* Build configuration list for PBXProject "SMCE Remote" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 839EA7F6262DC8AF00A34837;
+			packageReferences = (
+				83C0DFD7263431230073467B /* XCRemoteSwiftPackageReference "A-Star" */,
+				836DF55526389A4700EA5BC5 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
+			);
+			productRefGroup = 839EA800262DC8B000A34837 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				839EA7FE262DC8AF00A34837 /* SMCE Remote */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		839EA7FD262DC8AF00A34837 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				839EA80A262DC8B000A34837 /* Preview Assets.xcassets in Resources */,
+				839EA807262DC8B000A34837 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		216D3DB4FCB8FC9F4DC74810 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SMCE Remote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B83747E02C8E24DF80F1B14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMCE Remote/Pods-SMCE Remote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMCE Remote/Pods-SMCE Remote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SMCE Remote/Pods-SMCE Remote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		839EA7FB262DC8AF00A34837 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8327A5FB262DF281003F59B7 /* MQTTViewOld.swift in Sources */,
+				836DF536263870AD00EA5BC5 /* Astar.swift in Sources */,
+				83C0DFE4263431690073467B /* Step+Comparable.swift in Sources */,
+				83C0DFE3263431690073467B /* SortedArray.swift in Sources */,
+				83C0DFEB263433A50073467B /* GridViewOLD.swift in Sources */,
+				83C0DFDE263431520073467B /* SimpleNode.swift in Sources */,
+				839EA805262DC8B000A34837 /* ContentViewOld.swift in Sources */,
+				836DF54E263897FE00EA5BC5 /* ContentView.swift in Sources */,
+				836DF5392638710900EA5BC5 /* SwiftPriorityQueue.swift in Sources */,
+				83681F5526304E7B006DF98E /* ContentViewNOTUSED.swift in Sources */,
+				83C0DFDF263431520073467B /* Graph.swift in Sources */,
+				836A44562641865A00955496 /* Command.swift in Sources */,
+				8306F40526342A8500341642 /* Node.swift in Sources */,
+				8327A5FF262DF475003F59B7 /* Funcs.swift in Sources */,
+				83681F51263049D8006DF98E /* SMCEMQTT.swift in Sources */,
+				8353C35E2636E34C009E4628 /* GridView.swift in Sources */,
+				832CDD1D2639CF7000F506CF /* WaypointView.swift in Sources */,
+				832CDD1F2639D7D500F506CF /* Waypoint.swift in Sources */,
+				832CDD1B26396F4500F506CF /* PathFinder.swift in Sources */,
+				839EA803262DC8B000A34837 /* SMCE_RemoteApp.swift in Sources */,
+				8327A5F8262DE241003F59B7 /* MQTTtest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		839EA80C262DC8B000A34837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		839EA80D262DC8B000A34837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		839EA80F262DC8B000A34837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E234EA9804F5230879293DA2 /* Pods-SMCE Remote.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SMCE Remote/Preview Content\"";
+				DEVELOPMENT_TEAM = 445KK49DSF;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SMCE Remote/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamtelles.SMCE-Remote";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		839EA810262DC8B000A34837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95F91728DC475CE80B9A9044 /* Pods-SMCE Remote.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SMCE Remote/Preview Content\"";
+				DEVELOPMENT_TEAM = 445KK49DSF;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SMCE Remote/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamtelles.SMCE-Remote";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		839EA7FA262DC8AF00A34837 /* Build configuration list for PBXProject "SMCE Remote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				839EA80C262DC8B000A34837 /* Debug */,
+				839EA80D262DC8B000A34837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		839EA80E262DC8B000A34837 /* Build configuration list for PBXNativeTarget "SMCE Remote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				839EA80F262DC8B000A34837 /* Debug */,
+				839EA810262DC8B000A34837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		836DF55526389A4700EA5BC5 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		83C0DFD7263431230073467B /* XCRemoteSwiftPackageReference "A-Star" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dev1an/A-Star.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		836DF55626389A4700EA5BC5 /* SwiftUIVisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 836DF55526389A4700EA5BC5 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
+			productName = SwiftUIVisualEffects;
+		};
+		83C0DFD8263431230073467B /* AStar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83C0DFD7263431230073467B /* XCRemoteSwiftPackageReference "A-Star" */;
+			productName = AStar;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 839EA7F7262DC8AF00A34837 /* Project object */;
+}
