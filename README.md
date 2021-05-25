@@ -81,7 +81,7 @@ There are a few things you need to set in place before kicking off:
 - *Following instructions for MacOS only*
   - Install Xcode (also installs Swift and SwiftUI)
   - Open SMCE Remote.xcworkspace in Xcode and run the **iPhone 12 Pro** simulator. 
-  > It is important to use this simulator since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
+  > It is important to use the simulator for this specific device since other screen sizes may have visual errors (which may or may not be fixed eventually). If this part works fine then ignore the following instructions.
   - *If any CocoaPods issues arise* Install CocoaPods with following terminal commands
     - **$ sudo gem install cocoapods**
     - *Navigate to xcode project directory*
