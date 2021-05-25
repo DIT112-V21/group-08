@@ -59,7 +59,7 @@ struct SMCEMQTT {
     }
     
     func waitStop() {
-        mqttClient.publish("/", withString: "w")
+        mqttClient.publish("/", withString: "wait")
     }
     
     
