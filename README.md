@@ -101,6 +101,12 @@ There are a few things you need to set in place before kicking off:
 - As a driver using Python GUI, You can instantly stop the car from "Brake" button.
 ![Main Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Main%20window.png) 
 
+- As a driver using Python GUI,You can control the car verbally by clicking on the button"Click,then say a command".
+![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Voice%20Control%20Window.png) 
+
+- As a driver using Python GUI, You can see instructions displayed to avoid any unclarities with pattern's usage.
+![Help Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Help%20Window.png)
+
 **Following instructions for swift pathfinder app**
 - First start the mosquitto server by entering the following in the terminal: */usr/local/sbin/mosquitto*
 - Then start the app in the iPhone 12 Pro simulator in Xcode
@@ -110,11 +116,6 @@ There are a few things you need to set in place before kicking off:
 - After generating a path, the button to the bottom right is used to send the instructions generated to the car. Tapping this button will cause the car to move.
 - You can repeat the two recent instructions how many times you want, but be aware that due to minor inaccuracies in the cars movement, the pathfinding will become less accurate over time. This may cause the car to get stuck or stop nowhere near its destination.
 
-- As a driver using Python GUI,You can control the car verbally by clicking on the button"Click,then say a command".
-![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Voice%20Control%20Window.png) 
-
-- As a driver using Python GUI, You can see instructions displayed to avoid any unclarities with pattern's usage.
-![Help Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Help%20Window.png)
 
 ## Resources
 ### Sofware(Dependencies):
