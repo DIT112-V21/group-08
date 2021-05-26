@@ -183,7 +183,7 @@ void waitStop(){
   leftMotor.setSpeed(0);
 
 
-  while(car.getDistance() > 0.010){
+  while(car.getSpeed() > 0.010){
     delay(10); 
   }
   
