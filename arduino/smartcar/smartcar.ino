@@ -66,12 +66,12 @@ void setup() {
             Serial.println("Topic: " + topic + " Message: " + message);
             if(message == "r0.0") {
               gyro.update();
-              int roTo = 0;
+              int roTo = 180;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r315.0") {
               gyro.update();
-              int roTo = 315;
+              int roTo = 225;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r270.0") {
@@ -81,17 +81,17 @@ void setup() {
             }
             else if(message == "r225.0") {
               gyro.update();
-              int roTo = 225;
+              int roTo = 315;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r180.0") {
               gyro.update();
-              int roTo = 180;
+              int roTo = 0;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r135.0") {
               gyro.update();
-              int roTo = 135;
+              int roTo = 45;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "r90.0") {
@@ -101,7 +101,7 @@ void setup() {
             }
             else if(message == "r45.0") {
               gyro.update();
-              int roTo = 45;
+              int roTo = 135;
               rotateTo(gyro.getHeading(), roTo);
             }
             else if(message == "wait") {
