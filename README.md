@@ -38,7 +38,7 @@ From a business standpoint we argue that these different interfaces are necessar
 
 - [Controller Interface](https://github.com/DIT112-V21/group-08/wiki/Milestone-3:-Controller-Interface)
 
-- [Manual & Voice control](https://github.com/DIT112-V21/group-08/wiki/Milestone-4:-Voice-Control)
+- [Manual & Voice control](https://github.com/DIT112-V21/group-08/wiki/Milestone-4:-Voice-Control-&-Arduino-Refinement)
 
 ### Swift
 
