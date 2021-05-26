@@ -92,19 +92,20 @@ There are a few things you need to set in place before kicking off:
     - Select master branch or latest release
 
 ## User Manual:
-- As a driver using Python GUI, You can manaully control the car movement from the buttons illustrated in the main window.
-- As a driver using Python GUI, You can control the car speed from the "Vertical Slider" on the right, along with mointoring the current car speed from the bar.
-- As a driver using Python GUI, You can control the car movement from your Keyboard Arrow Keys.
-- As a driver using Python GUI, You can opt to Help Window from "How To Use" button, to see instructions for the app usage.
-- As a driver using Python GUI, You can opt to Voice Control Window from"Voice Control" button , to control the car movement via voice commands.
-- As a driver using Python GUI, You can see your previous & current history using the app from "Logging" Button.
-- As a driver using Python GUI, You can instantly stop the car from "Brake" button.
+ As a driver using Python GUI :
+- You can manaully control the car movement from the buttons illustrated in the main window.
+- You can control the car speed from the "Vertical Slider" on the right, along with mointoring the current car speed from the bar.
+- You can control the car movement from your Keyboard Arrow Keys.
+- You can opt to Help Window from "How To Use" button, to see instructions for the app usage.
+- You can opt to Voice Control Window from"Voice Control" button , to control the car movement via voice commands.
+- You can see your previous & current history using the app from "Logging" Button.
+- You can instantly stop the car from "Brake" button.
 ![Main Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Main%20window.png) 
 
-- As a driver using Python GUI,You can control the car verbally by clicking on the button"Click,then say a command".
+- You can control the car verbally by clicking on the button"Click,then say a command".
 ![Voice Control Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Voice%20Control%20Window.png) 
 
-- As a driver using Python GUI, You can see instructions displayed to avoid any unclarities with pattern's usage.
+- You can see instructions displayed to avoid any unclarities with pattern's usage.
 ![Help Window](https://github.com/DIT112-V21/group-08/blob/master/GUI%20Pycharm/Help%20Window.png)
 
 **Following instructions for swift pathfinder app**
