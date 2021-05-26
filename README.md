@@ -113,6 +113,7 @@ There are a few things you need to set in place before kicking off:
 - Then start the arduino sketch in SMCE
 - To begin, tap the center button on the home page of the app called "GRID" (or "BEGIN" depending on your version)
 - To the bottom right of the screen there is a button with an A* icon. This will enable or disable the A-star algorithm used for the pathfinding. Disabling it will result is significantly faster path generation, but at the cost of these paths often being sub-optimal. If you are unhappy with the generated path or the app is unable to find a path at all, we suggest you enable the A-star algorithm.
+- Tap on any of the white squares in the grid, red squares repesent un-drivable terrain.
 - After generating a path, the button to the bottom right is used to send the instructions generated to the car. Tapping this button will cause the car to move.
 - You can repeat the two recent instructions how many times you want, but be aware that due to minor inaccuracies in the cars movement, the pathfinding will become less accurate over time. This may cause the car to get stuck or stop nowhere near its destination.
 
