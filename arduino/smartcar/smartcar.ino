@@ -79,7 +79,7 @@ void setup() {
 void loop() {
     if (mqtt.connected()) {
         //mqtt.publish("/", "Hello");
-        mqtt.publish("currentspeed", manualSpeed);
+        //mqtt.publish("speed", manualSpeed);
         mqtt.loop();
     }
 }
