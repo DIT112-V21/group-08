@@ -122,6 +122,8 @@ stylesheet = '''
 #QLabel#TitleContent{
     color: #FFFFFF;
 }
-
+#speedoMeter{
+    color: #FFFFFF;
+}
 
 '''

@@ -107,7 +107,7 @@ broker_address = "localhost"
 manualClient = mqtt.Client("Manual-Control")
 manualClient.connect(broker_address)
 manualClient.subscribe("/")
-manualClient.subscribe("speed")
+manualClient.subscribe("currentspeed")
 
 def on_connect(client, userdata, flags, rc):
     print("Connected")
@@ -119,7 +119,7 @@ class WindowMain(object):
     x = 0
     _signal = pyqtSignal(int)
     def on_message(client, userdata, message):
-        if message.topic == "speed":
+        if message.topic == "currentspeed":
             print("received message: ", int(message.payload.decode("utf-8")))
             global x
             if int(message.payload.decode("utf-8")) <= 99:
@@ -212,10 +212,10 @@ class WindowMain(object):
 
         self.sliderSpeed.valueChanged[int].connect(self.changeValue)
 
-        #self.speedoMeter = QtWidgets.QLabel(windowmain)
-        #self.speedoMeter.setText("Current Speed: " + str(x))
-        #self.speedoMeter.setGeometry(530, 300, 100, 50)
-        #self.speedoMeter.setObjectName("speedoMeter")
+        self.speedoMeter = QtWidgets.QLabel(windowmain)
+        self.speedoMeter.setText("Current Speed: " + str(x))
+        self.speedoMeter.setGeometry(530, 300, 100, 50)
+        self.speedoMeter.setObjectName("speedoMeter")
 
         self.speedoBar = QProgressBar(windowmain)
         self.speedoBar.setGeometry(530, 50, 100, 250)
@@ -243,7 +243,7 @@ class WindowMain(object):
 
     def signal_accept(self, msg):
         self.speedoBar.setValue(int(x))
-        #self.speedoMeter.setText("speed" + str(x))
+        self.speedoMeter.setText("Current Speed:" + str(x))
 
     def retranslateUi(self, windowMain):
         _translate = QtCore.QCoreApplication.translate
