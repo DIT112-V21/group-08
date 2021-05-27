@@ -125,7 +125,10 @@ class WindowMain(object):
             print("received message: ", int(message.payload.decode("utf-8")))
             global x
 
-            x = int(message.payload.decode("utf-8"))
+            if int(message.payload.decode("utf-8")) > 99:
+                x = 99
+            else:
+                x = int(message.payload.decode("utf-8"))
 
 
     manualClient.loop_start()
