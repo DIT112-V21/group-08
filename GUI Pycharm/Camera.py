@@ -12,22 +12,33 @@ def on_connect(client, userdata, flags, rc):
         client.subscribe("/smartcar/camera")
     else:
         print("Bad connection Returned code=", rc)
-
+    
+class MainWindow(QMainWindow):
     def on_message(client, userdata, message):
+        print(message.topic)
+        global image
         image = QImage(message.payload, 600, 480, QImage.Format_RGB888)
 
-        print(message.topic)
-        print("connected")
+    def window(self):
+        super(MainWindow, self).__init__()
+        self.title = "Video Viewer"
+        self.setWindowTitle(self.title)
 
-    def main():
-        # Connections to mqtt
-        broker_address = "localhost"
-        client = mqtt.Client()
-        client.connect(broker_address)
-        client.subscribe('/smartcar/data/#')
-        client.on_connect = on_connect
-        client.on_message = on_message
-        client.loop_forever()
+        label = QLabel(self)
+        pixmap = QPixmap(image)
+        label.setPixmap(pixmap)
+        self.setCentralWidget(label)
+        self.resize(pixmap.width(), pixmap.height())
+        
+def main():
+    # Connections to mqtt
+    broker_address = "localhost"
+    client = mqtt.Client()
+    client.connect(broker_address)
+    client.subscribe('/smartcar/data/#')
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.loop_forever()
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
